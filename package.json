@@ -1,21 +1,58 @@
 {
-  "name": "package-development-worona",
+  "name": "publish-native-dashboard-extension-worona",
   "version": "1.0.0",
-  "description": "Boilerplate to create Worona packages",
+  "description": "Package for the dashboard publication of native apps.",
   "scripts": {
     "start": "node node_modules/worona-packages/dist/start.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worona/package-development-worona.git"
+    "url": "git+https://github.com/worona/publish-native-dashboard-extension-worona.git"
   },
   "keywords": [
+    "publish",
+    "native",
+    "dashboard",
     "worona",
     "package"
   ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "worona-packages": "1.2.12"
+    "core-dashboard-worona": "1.2.25",
+    "worona-packages": "1.2.13"
+  },
+  "authors": [
+    "luis@worona.org"
+  ],
+  "bugs": {
+    "url": "https://github.com/worona/publish-native-dashboard-extension-worona/issues"
+  },
+  "homepage": "https://github.com/worona/publish-native-dashboard-extension-worona#readme",
+  "worona": {
+    "niceName": "Publish Native",
+    "slug": "PublishNative",
+    "type": "extension",
+    "services": [
+      "dashboard"
+    ],
+    "namespace": "publishNative",
+    "menu": {
+      "category": "Publish",
+      "order": 10
+    },
+    "default": false,
+    "core": false,
+    "listed": true,
+    "deactivable": true,
+    "public": true,
+    "authors": [
+      null
+    ]
+  },
+  "dependencies": {
+    "file-saver": "^1.3.3",
+    "jszip": "^3.1.3",
+    "jszip-utils": "0.0.2"
   }
 }

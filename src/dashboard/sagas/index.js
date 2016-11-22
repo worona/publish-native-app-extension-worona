@@ -1,11 +1,8 @@
 import { fork } from 'redux-saga/effects';
+import { publishSiteWatcher } from './publishSite';
 
-function* logSaga() {
-  console.log('test saga running!');
-}
-
-export default function* testSagas() {
+export default function* siteSagas() {
   yield [
-    fork(logSaga),
+    fork(publishSiteWatcher),
   ];
 }

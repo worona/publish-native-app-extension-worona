@@ -1,8 +1,12 @@
-import React from 'react';
-import * as components from './components';
+import * as actions from './actions';
+import * as types from './types';
 import * as sagas from './sagas';
 
-export default {
-  components,
+const locales = lang => require(`./locales/${lang}.json`);
+
+export {
+  actions,
+  locales,
   sagas,
+  types,
 };
