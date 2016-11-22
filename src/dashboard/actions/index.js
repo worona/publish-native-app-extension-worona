@@ -9,3 +9,5 @@ export const publishSiteSucceed = siteId =>
   ({ type: types.PUBLISH_SITE_SUCCEED, siteId });
 export const publishSiteFailed = errorObj =>
   ({ type: types.PUBLISH_SITE_FAILED, error: stringifyError(errorObj) });
+export const uploadSucceed = (fileId, siteId) => ({ type: types.UPLOAD_SUCCEED, fileId, siteId });
+export const uploadError = (status) => ({ type: types.UPLOAD_ERROR, status });

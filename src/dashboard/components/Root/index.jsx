@@ -1,5 +1,6 @@
 import React from 'react';
+import Publish from '../Publish';
 
 export default () => (
-  <div>Your Root component is working!</div>
+  <Publish />
 );
