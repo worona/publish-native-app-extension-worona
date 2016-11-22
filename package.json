@@ -47,7 +47,7 @@
     "deactivable": true,
     "public": true,
     "authors": [
-      null
+      "luis@worona.org"
     ]
   },
   "dependencies": {

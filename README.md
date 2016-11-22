@@ -1,6 +1,6 @@
 # Worona Package Development
 
-Download or clone this repository to start developing a Worona package.
+You can use this repository to start developing a Worona package.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Download or clone this repository to start developing a Worona package.
 
 ----
 
-**Update NPM** if you haven't updated it yet. We recommend v3.
+**Update NPM** if you haven't updated it yet. You need at least version 3.
 
 ```
 npm -g install npm@3
@@ -23,12 +23,13 @@ Fork this repo on [GitHub](https://github.com/worona/package-development-worona)
 Then add this repository as upstream so you can keep up with the changes.
 
 ```bash
+git init
 git remote add upstream https://github.com/worona/package-development-worona.git
 ```
 
 ----
 
-Run `npm install` to install dependencies. It may take quite a while. Don't despair.
+Run `npm install` to install dependencies. It may take quite a while so you can go play some ping pong 🏓
 
 ```bash
 npm install
@@ -36,7 +37,7 @@ npm install
 
 ## Development
 
-Run the dashboard client.
+Run the client.
 
 ```bash
 npm start
