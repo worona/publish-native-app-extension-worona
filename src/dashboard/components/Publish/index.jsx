@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import * as deps from '../../deps';
 import ImageUploader from './ImageUploader';
 
-const Button = deps.components.Button;
-
-let PublishButton = ({ requestPublishSite, siteId }) => (
-  <Button onClick={requestPublishSite}> Publish Now </Button>
-);
+let PublishButton = ({ requestPublishSite, siteId }) => {
+  const Button = deps.components.Button;
+  return (
+    <Button onClick={requestPublishSite}> Publish Now </Button>
+  );
+};
 
 PublishButton.propTypes = {
   requestPublishSite: React.PropTypes.func.isRequired,
