@@ -22,7 +22,7 @@
     "file-saver": "^1.3.3",
     "jszip": "^3.1.3",
     "jszip-utils": "0.0.2",
-    "react-dropzone-s3-uploader": "^0.8.0"
+    "react-dropzone-s3-uploader": "git+https://github.com/luisherranz/react-dropzone-s3-uploader.git"
   },
   "devDependencies": {
     "core-dashboard-worona": "1.2.26",
