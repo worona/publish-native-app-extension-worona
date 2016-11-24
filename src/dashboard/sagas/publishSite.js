@@ -15,9 +15,9 @@ import generateImagesArray from '../templates/images.js';
 
 function getImagesArray(siteId, iconId) {
   const baseUrl = (iconId) ? // If user doesn't provide an icon we user Worona images.
-    `http://worona.imgix.net/sites/${siteId}/icon/${iconId}`
+    `https://worona.imgix.net/sites/${siteId}/icon/${iconId}`
     :
-    'http://worona.imgix.net/splashes/watermark/logo-1024.png';
+    'https://worona.imgix.net/splashes/watermark/logo-1024.png';
   return generateImagesArray(baseUrl);
 }
 

@@ -21,7 +21,7 @@ class ImageUploaderClass extends React.Component {
     };
     const uploaderProps = {
       style,
-      server: 'http://backend.worona.io',
+      server: 'https://backend.worona.io',
       signingUrl: '/api/v1/s3/sign',
       signingUrlQueryParams: { siteId: this.props.siteId, imgType: 'icon' },
       accept: 'image/*',
