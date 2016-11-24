@@ -1,5 +1,5 @@
 {
-  "name": "publish-native-dashboard-extension-worona",
+  "name": "publish-native-app-extension-worona",
   "version": "1.0.0",
   "description": "Package for the dashboard publication of native apps.",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worona/publish-native-dashboard-extension-worona.git"
+    "url": "git+https://github.com/worona/publish-native-app-extension-worona.git"
   },
   "keywords": [
     "publish",
@@ -32,9 +32,9 @@
     "luis@worona.org"
   ],
   "bugs": {
-    "url": "https://github.com/worona/publish-native-dashboard-extension-worona/issues"
+    "url": "https://github.com/worona/publish-native-app-extension-worona/issues"
   },
-  "homepage": "https://github.com/worona/publish-native-dashboard-extension-worona#readme",
+  "homepage": "https://github.com/worona/publish-native-app-extension-worona#readme",
   "worona": {
     "niceName": "Publish Native",
     "slug": "PublishNative",
@@ -44,6 +44,9 @@
     ],
     "namespace": "publishNative",
     "menu": {
+      "services": [
+        "app"
+      ],
       "category": "Publish",
       "order": 10
     },
