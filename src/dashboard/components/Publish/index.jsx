@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import * as deps from '../../deps';
 import ImageUploader from './ImageUploader';
 
@@ -16,7 +17,7 @@ PublishButton.propTypes = {
 };
 
 const mapDispatchToPublishButtonProps = (dispatch, ownProps) => ({
-  requestPublishSite: () => dispatch(deps.actions.publishSiteRequested(ownProps.siteId)),
+  requestPublishSite: () => dispatch(actions.publishSiteRequested(ownProps.siteId)),
 });
 
 PublishButton = connect(null, mapDispatchToPublishButtonProps)(PublishButton);
