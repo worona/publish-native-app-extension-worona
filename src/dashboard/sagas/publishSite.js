@@ -1,7 +1,7 @@
 import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 import JSZipUtils from 'jszip-utils';
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 
 import indexHtml from 'raw!../templates/index.html';
@@ -111,6 +111,6 @@ export function* publishSiteSaga(action) {
 
 export function* publishSiteWatcher() {
   yield [
-    takeLatest(types.PUBLISH_SITE_REQUESTED, publishSiteSaga),
+    takeEvery(types.PUBLISH_SITE_REQUESTED, publishSiteSaga),
   ];
 }
