@@ -10,7 +10,6 @@ export default ({ appId, appName,
 
     <name>${appName}</name>
 
-
     <author href="${siteURL}" email="${userEmail}">
         ${userName}
     </author>
@@ -19,48 +18,14 @@ export default ({ appId, appName,
     <content src="index.html" />
 
     <!-- General preferences -->
+    <preference name="orientation"            value="default" />
+    <preference name="android-build-tool" value="gradle" />
     <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="15" />
+    <preference name="android-targetSdkVersion" value="23" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <preference name="phonegap-version"       value="cli-6.3.0" />
-    <preference name="orientation"            value="all" />
 
-
-
-    <!-- Plugins -->
-    <!-- General plugins -->
-    <plugin name="cordova-plugin-appsettings"         source="npm" spec="~1.0.2" />
-    <!-- siteId preference. -->
-    <preference name="siteId" value="${siteId}" />
-
-    <plugin name="cordova-plugin-splashscreen"        source="npm" />
-    <preference name="SplashScreenDelay"              value="3000" />
-    <preference name="AutoHideSplashScreen"           value="true" />
-    <preference name="SplashScreen"                   value="www/res/screen/android" />
-    <preference name="SplashMaintainAspectRatio"      value="true" />
-
-    <!--
-    <plugin name="cordova-plugin-battery-status"      source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-camera"              source="npm" spec="~2.1.1" />
-    <plugin name="cordova-plugin-media-capture"       source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-console"             source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-contacts"            source="npm" spec="~2.0.1" />
-    <plugin name="cordova-plugin-device"              source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-device-motion"       source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-device-orientation"  source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-dialogs"             source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-file"                source="npm" spec="~4.1.1" />
-    <plugin name="cordova-plugin-file-transfer"       source="npm" spec="~1.5.0" />
-    <plugin name="cordova-plugin-geolocation"         source="npm" spec="~2.1.0" />
-    <plugin name="cordova-plugin-globalization"       source="npm" spec="~1.0.3" />
-    <plugin name="cordova-plugin-inappbrowser"        source="npm" spec="~1.3.0" />
-    <plugin name="cordova-plugin-media"               source="npm" spec="~2.2.0" />
-    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-splashscreen"        source="npm" spec="~3.2.1" />
-    <plugin name="cordova-plugin-statusbar"           source="npm" spec="~2.1.2" />
-    <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.0" />
-    <plugin name="cordova-plugin-whitelist"           source="npm" spec="~1.2.1" />
-    -->
 
     <!-- Define app icon and splashscreen for each platform. -->
     <platform name="android">
@@ -104,37 +69,121 @@ export default ({ appId, appName,
         <splash src="www/res/screen/ios/Default-Portrait.png"           platform="ios" width="768"  height="1024" />
     </platform>
 
-    <!--
-        Define access to external domains.
 
-        <access />            - a blank access tag denies access to all external resources.
-        <access origin="*" /> - a wildcard access tag allows access to all external resource.
+    <!-- Plugins -->
+    <!-- Worona core plugins -->
+    <plugin name="cordova-plugin-appsettings"         source="npm" />
+    <!-- siteId preference. -->
+    <preference name="siteId" value="${siteId}" />
 
-        Otherwise, you can specify specific domains:
-    -->
-    <!-- <access origin="*" /> -->
-    <!--
-       <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
-       <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
-       <access origin="http://phonegap.com" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
-    -->
+    <!-- PhoneGap core plugins -->
+    <plugin name="cordova-plugin-splashscreen"        source="npm" />
+    <preference name="SplashScreenDelay"              value="3000" />
+    <preference name="AutoHideSplashScreen"           value="true" />
+    <preference name="SplashScreen"                   value="www/res/screen/android" />
+    <preference name="SplashMaintainAspectRatio"      value="true" />
 
+    <plugin name="cordova-plugin-battery-status"      source="npm" />
+    <plugin name="cordova-plugin-camera"              source="npm" />
+    <plugin name="cordova-plugin-media-capture"       source="npm" />
+    <plugin name="cordova-plugin-contacts"            source="npm" />
+    <plugin name="cordova-plugin-device"              source="npm" />
+    <plugin name="cordova-plugin-device-motion"       source="npm" />
+    <plugin name="cordova-plugin-device-orientation"  source="npm" />
+    <plugin name="cordova-plugin-dialogs"             source="npm" />
+    <plugin name="cordova-plugin-file"                source="npm" />
+    <plugin name="cordova-plugin-file-transfer"       source="npm" />
+    <plugin name="cordova-plugin-geolocation"         source="npm" />
+    <plugin name="cordova-plugin-globalization"       source="npm" />
+    <plugin name="cordova-plugin-inappbrowser"        source="npm" />
+    <plugin name="cordova-plugin-media-capture"       source="npm" />
+    <plugin name="cordova-plugin-media"               source="npm" />
+    <plugin name="cordova-plugin-network-information" source="npm" />
+    <plugin name="cordova-plugin-statusbar"           source="npm" />
+    <plugin name="cordova-plugin-vibration"           source="npm" />
+    <plugin name="cordova-plugin-whitelist"           source="npm" />
+    <!-- Whitelist configuration. -->
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <access origin="*" />
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
-    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
-
+    <allow-intent href="content:*" />
+    <allow-intent href="dailymotion:*" />
+    <allow-intent href="file:*" />
+    <allow-intent href="fb:*" />
+    <allow-intent href="fb-messenger:*" />
+    <allow-intent href="feed:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="googledrive:*" />
+    <allow-intent href="google.streetview:*" />
+    <allow-intent href="gplus:*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
+    <allow-intent href="instagram:" />
+    <allow-intent href="intent:" />
+    <allow-intent href="linkedin:" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+    <allow-intent href="pocket:*" />
+    <allow-intent href="skype:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="spotify:*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="tweetie:*" />
+    <allow-intent href="twitter:*" />
+    <allow-intent href="tg:*" />
+    <allow-intent href="videos:*" />
+    <allow-intent href="weixin:*" />
+    <allow-intent href="whatsapp:*" />
+    <allow-intent href="youtube:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <allow-intent href="comgooglemaps:*" />
+        <allow-intent href="calshow:*" />
     </platform>
+
+    <!-- Third party plugins -->
+    <plugin name="cordova-plugin-x-socialsharing"     source="npm" />
+    <plugin name="cordova-plugin-admob"               source="npm" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" />
+    <plugin name="cordova-plugin-x-toast"             source="npm" />
+    <plugin name="cordova-plugin-actionsheet"         source="npm" />
+    <plugin name="cordova-plugin-pindialog"           source="npm" />
+    <plugin name="cordova-plugin-spinnerdialog"       source="npm" />
+    <plugin name="cordova-plugin-dialogs"             source="npm" />
+    <plugin name="cc.fovea.cordova.purchase"          source="npm">
+        <param name="BILLING_KEY" value="XXXX" />
+    </plugin>
+    <plugin name="polarcape-cordova-plugin-document-handler" source="npm" />
+    <plugin name="cordova-plugin-wkwebview-engine"    source="npm" />
+    <plugin name="cordova-plugin-file-opener2"        source="npm" />
+    <plugin name="phonegap-plugin-barcodescanner"     source="npm" />
+    <plugin name="cordova-plugin-customurlscheme"     source="npm">
+        <param name="URL_SCHEME" value="es.govoid.www.app" />
+    </plugin>
+    <plugin name="cordova-universal-links-plugin"     source="npm" />
+    <plugin name="cordova-plugin-touchid"             source="npm" />
+    <plugin name="cordova-plugin-3dtouch"             source="npm" />
+    <plugin name="cordova-plugin-geofence"            source="npm" />
+    <plugin name="cordova-plugin-image-picker"        source="npm" />
+    <plugin name="cordova-plugin-insomnia"            source="npm" />
+    <plugin name="com.unarin.cordova.beacon"          source="npm" />
+    <plugin name="cordova-plugin-nativestorage"       source="npm" />
+    <plugin name="cordova-plugin-badge"               source="npm" />
+    <plugin name="pushwoosh-cordova-plugin">
+        <variable name="LOG_LEVEL" value="DEBUG" />
+        <variable name="IOS_FOREGROUND_ALERT_TYPE" value="NONE" />
+        <variable name="ANDROID_FOREGROUND_PUSH" value="false" />
+    </plugin>
+    <plugin name="cordova-plugin-apprate"             source="npm" />
+    <plugin name="com.darktalker.cordova.screenshot"  source="npm" />
+    <plugin name="cordova-plugin-calendar"            source="npm" />
+    <plugin name="cordova-plugin-keyboard"            source="npm" />
+    <plugin name="nl.x-services.plugins.backgroundaudio"  spec="https://github.com/EddyVerbruggen/cordova-plugin-backgroundaudio.git" />
+    <plugin name="com.oauthio.plugins.oauthio"            spec="https://github.com/oauth-io/oauth-phonegap" />
 
 </widget>
 `;
