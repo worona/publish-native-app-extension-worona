@@ -5,7 +5,7 @@ import * as deps from '../../deps';
 import ImageUploader from './ImageUploader';
 
 let PublishButton = ({ requestPublishSite, siteId }) => {
-  const Button = deps.components.Button;
+  const Button = deps.elements.Button;
   return (
     <Button onClick={requestPublishSite}> Publish Now </Button>
   );
@@ -24,6 +24,7 @@ PublishButton = connect(null, mapDispatchToPublishButtonProps)(PublishButton);
 
 const Publish = ({ siteId }) => (
     <div>
+      <h1>1. Enter your app name and icon</h1>
       <ImageUploader siteId={siteId} />
       <PublishButton siteId={siteId} />
     </div>
