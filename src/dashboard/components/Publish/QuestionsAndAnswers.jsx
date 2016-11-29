@@ -14,14 +14,14 @@ Answer.propTypes = {
   i18nAnswer: React.PropTypes.string.isRequired,
 };
 
-Answer = translate(Answer)('publishNative');
+Answer = translate('publishNative')(Answer);
 
-const Question = ({ i18nQuestion }) => (
+let Question = ({ i18nQuestion }) => (
   <div className="content is-medium">
     <strong style={{ color: '#69707a' }}>
       <Interpolate
         i18nKey={i18nQuestion}
-        useDangerouslySetInnerHTML
+        useDangerouslySetInnerHTML 
       />
     </strong>
   </div>
@@ -30,6 +30,8 @@ const Question = ({ i18nQuestion }) => (
 Question.propTypes = {
   i18nQuestion: React.PropTypes.string.isRequired,
 };
+
+Question = translate('publishNative')(Question);
 
 export default ({ questions }) => (
   <div>
@@ -41,6 +43,8 @@ export default ({ questions }) => (
     <br />
     {questions.map((i18nEntry) => (
       <div>
+        <Question i18nQuestion={`Q&A-${i18nEntry}-answer`} />
+        <Answer i18nAnswer={`Q&A-${i18nEntry}-answer`} />
         <br />
       </div>
       )
