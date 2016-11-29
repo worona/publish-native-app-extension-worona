@@ -1,7 +1,8 @@
 import { dep } from 'worona-deps';
 
 export const elements = {
-  get Button() { return dep('theme', 'elements', 'Button') },
+  get Button() { return dep('theme', 'elements', 'Button'); },
+  get Icon() { return dep('theme', 'elements', 'Icon'); },
   get RootContainer() { return dep('theme', 'elements', 'RootContainer'); },
 };
 
