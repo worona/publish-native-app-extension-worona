@@ -1,5 +1,6 @@
 import * as actions from './actions';
 import * as types from './types';
+import * as reducers from './reducers';
 import * as sagas from './sagas';
 import * as components from './components';
 
@@ -9,6 +10,7 @@ export {
   actions,
   components,
   locales,
+  reducers,
   sagas,
   types,
 };

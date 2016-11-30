@@ -33,7 +33,7 @@ Question.propTypes = {
 
 Question = translate('publishNative')(Question);
 
-export const QuestionsAndAnswers = ({ questions }) => (
+const QuestionsAndAnswers = ({ questions }) => (
   <div>
     <hr />
     <h1 className="title">Any questions?</h1>
