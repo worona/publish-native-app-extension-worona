@@ -16,13 +16,10 @@ Answer.propTypes = {
 
 Answer = translate('publishNative')(Answer);
 
-let Question = ({ i18nQuestion }) => (
+let Question = ({ i18nQuestion, t }) => (
   <div className="content is-medium">
     <strong style={{ color: '#69707a' }}>
-      <Interpolate
-        i18nKey={i18nQuestion}
-        useDangerouslySetInnerHTML 
-      />
+      {t('check-text-online')}
     </strong>
   </div>
 );
@@ -31,7 +28,7 @@ Question.propTypes = {
   i18nQuestion: React.PropTypes.string.isRequired,
 };
 
-Question = translate('publishNative')(Question);
+Question = translate('theme')(Question);
 
 export default ({ questions }) => (
   <div>
@@ -43,7 +40,7 @@ export default ({ questions }) => (
     <br />
     {questions.map((i18nEntry) => (
       <div>
-        <Question i18nQuestion={`Q&A-${i18nEntry}-answer`} />
+        <Question i18nQuestion={`Q&A-${i18nEntry}-question`} />
         <Answer i18nAnswer={`Q&A-${i18nEntry}-answer`} />
         <br />
       </div>
