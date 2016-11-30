@@ -21,7 +21,7 @@ let Question = ({ i18nQuestion }) => (
     <strong style={{ color: '#69707a' }}>
       <Interpolate
         i18nKey={i18nQuestion}
-        useDangerouslySetInnerHTML 
+        useDangerouslySetInnerHTML
       />
     </strong>
   </div>
@@ -33,7 +33,7 @@ Question.propTypes = {
 
 Question = translate('publishNative')(Question);
 
-export default ({ questions }) => (
+export const QuestionsAndAnswers = ({ questions }) => (
   <div>
     <hr />
     <h1 className="title">Any questions?</h1>
@@ -41,10 +41,10 @@ export default ({ questions }) => (
       Here are some answers.
     </div>
     <br />
-    {questions.map((i18nEntry) => (
-      <div>
-        <Question i18nQuestion={`Q&A-${i18nEntry}-answer`} />
-        <Answer i18nAnswer={`Q&A-${i18nEntry}-answer`} />
+    {questions.map((i18nEntry, index) => (
+      <div key={index}>
+        <Question i18nQuestion={`Q&A-${i18nEntry}-answer`} key={`question-${index}`} />
+        <Answer i18nAnswer={`Q&A-${i18nEntry}-answer`} key={`answer-${index}`} />
         <br />
       </div>
       )
@@ -57,3 +57,9 @@ export default ({ questions }) => (
     </div>
   </div>
 );
+
+QuestionsAndAnswers.propTypes = {
+  questions: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+};
+
+export default QuestionsAndAnswers;
