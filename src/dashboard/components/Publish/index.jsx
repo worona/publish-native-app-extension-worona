@@ -11,10 +11,10 @@ import styles from './style.css';
 const Publish = ({ siteId }) => (
   <div>
     <div className="column is-12-tablet is-9-desktop">
-      <div>
-        <h1 className="title">1. Create your app name and icon</h1>
+      <div id="EnterNameIcon">
+        <h1 className="title">1. Enter your app name and icon</h1>
         <div className="subtitle">
-          Create a name and icon for your mobile app and let users easily identify it amongst other apps.
+          Enter a name and icon for your mobile app and let users easily identify it amongst other apps.
         </div>
         <div className="columns">
           <div className="column is-4">
@@ -44,7 +44,7 @@ const Publish = ({ siteId }) => (
         </div>
         <hr />
       </div>
-      <div>
+      <div id="Preview">
         <h1 className="title">2. Preview</h1>
         <div className="subtitle">
           See what your icon and splash screen will look like before publishing.
@@ -70,7 +70,7 @@ const Publish = ({ siteId }) => (
         </div>
         <hr />
       </div>
-      <div>
+      <div id="Publish">
         <h1 className="title">3. Publish</h1>
         <div className="subtitle">
           Here you can choose whether you want to publish your app by yourself, or if you prefer us to do the work for you.
@@ -90,16 +90,16 @@ const Publish = ({ siteId }) => (
                 </div>
                 <hr />
                 <div className="content has-text-centered">
-                  <deps.elements.Icon small code="exclamation-circle" />
+                  <deps.elements.Icon code="exclamation-circle" color="#bdc3c7" />
                     &nbsp;Google Developer Account required - <strong>$35</strong>
                   <br /><br />
-                  <deps.elements.Icon small code="exclamation-circle" />
+                  <deps.elements.Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Apple Developer Account required - <strong>$99/yr</strong>
                   <br /><br />
-                  <deps.elements.Icon small code="exclamation-circle" />
+                  <deps.elements.Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Compile the app source code using <a href="https://build.phonegap.com" target="_blank">Phonegap Build</a>.
                   <br /><br />
-                  <deps.elements.Icon small code="exclamation-circle" />
+                  <deps.elements.Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;You need a Mac computer to upload the iOS app to the Apple App Store.
                   <br />
                 </div>
@@ -137,16 +137,20 @@ const Publish = ({ siteId }) => (
                 </div>
                 <hr />
                 <div className="content has-text-centered">
-                  <span className="icon" style={{ color: '#27ae60' }}><i className="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Premium support <br /><br />
-                  <span className="icon" style={{ color: '#27ae60' }}><i className="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Your app published in 7 days <br /><br />
-                  <span className="icon" style={{ color: '#27ae60' }}><i className="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;No developer accounts required <br /><br />
-                  <span className="icon" style={{ color: '#27ae60' }}><i className="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;290€&nbsp;one time payment
-                  <br />
+                  <deps.elements.Icon code="check" color="#27ae60" />
+                  &nbsp;&nbsp;Premium support <br /><br />
+                  <deps.elements.Icon code="check" color="#27ae60" />
+                  &nbsp;&nbsp;Your app published in 7 days <br /><br />
+                  <deps.elements.Icon code="check" color="#27ae60" />
+                  &nbsp;&nbsp;No developer accounts required <br /><br />
+                  <deps.elements.Icon code="check" color="#27ae60" />
+                  &nbsp;&nbsp;290€&nbsp;one time payment <br />
                 </div>
                 <hr />
                 <div className="has-text-centered">
                   <a className="button is-large is-success" style={{ backgroundColor: '#27ae60' }}>
-                    <span>Shop now</span>
+                    <deps.elements.Icon code="check" />
+                    <span>Get it now</span>
                   </a>
                   <span className="help" style={{ marginTop: '15px' }}>
                     Questions or doubts? <a href="https://www.worona.org/get-help" target="_blank">Contact us</a> any time.
