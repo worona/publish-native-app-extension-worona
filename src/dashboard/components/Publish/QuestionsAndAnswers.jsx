@@ -43,7 +43,7 @@ const QuestionsAndAnswers = ({ questions }) => (
     <br />
     {questions.map((i18nEntry, index) => (
       <div key={index}>
-        <Question i18nQuestion={`Q&A-${i18nEntry}-answer`} key={`question-${index}`} />
+        <Question i18nQuestion={`Q&A-${i18nEntry}-question`} key={`question-${index}`} />
         <Answer i18nAnswer={`Q&A-${i18nEntry}-answer`} key={`answer-${index}`} />
         <br />
       </div>

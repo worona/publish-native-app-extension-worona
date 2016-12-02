@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+import Imgix from 'react-imgix';
 
 import * as deps from '../../deps';
 import * as actions from '../../actions';
@@ -85,7 +86,6 @@ const Publish = ({ siteId }) => {
   const Icon = deps.elements.Icon;
   return (
     <div>
-      <div className="column is-12-tablet is-9-desktop">
         <div id="EnterNameIcon">
           <h1 className="title">1. Enter your app name and icon</h1>
           <div className="subtitle">
@@ -103,7 +103,13 @@ const Publish = ({ siteId }) => {
           <div className="columns">
             <div className="column is-4 has-text-centered">
               <br />
-              <img className={styles.splash} src="./worona-splash.png" alt="" />
+              <div width="267px" height="462px">
+                <img
+                  className={styles.splash}
+                  src="http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=http://worona.imgix.net/splashes/watermark/logo-1024.png"
+                  alt="SplahScreen preview for the app"
+                />
+              </div>
               <br /><br />
               <span className="help">
                 <strong>Splash Screen</strong>
@@ -114,7 +120,9 @@ const Publish = ({ siteId }) => {
             </div>
             <div className="column is-4 is-offset-1 has-text-centered" style={{ marginTop: '173px' }}>
               <br />
-              <img src="./worona-icon.png" style={{ width: '128px' }} alt="" />
+              <div width="128px" height="128px">
+                <Imgix src="https://worona.imgix.net/splashes/watermark/logo-1024.png" height="128px" width="128px" imgProps={{ alt: 'App icon preview' }} />
+              </div>
               <br />
               <span className="help"><strong>App Icon</strong></span>
             </div>
@@ -210,7 +218,6 @@ const Publish = ({ siteId }) => {
               </div>
             </div>
           </div>
-        </div>
         <QuestionsAndAnswers questions={questions} />
       </div>
       <ImageUploader siteId={siteId} />

@@ -37,12 +37,13 @@ class ImageUploaderClass extends React.Component {
     };
 
     return (
-      <div className="container">
+      <div className="card">
         <DropzoneS3Uploader
           onFinish={this.props.handleFinishedUpload}
           onError={this.props.handleUploadError}
           onProgress={onUploadProgress}
           {...uploaderProps}
+          className="card-content"
         >
           <div>
             <p>Drop your app icon here.</p>
