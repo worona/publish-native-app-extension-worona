@@ -215,7 +215,6 @@ const Publish = ({ siteId }) => {
           </div>
         <QuestionsAndAnswers questions={questions} />
       </div>
-      <ImageUploader siteId={siteId} />
       <DownloadButton siteId={siteId} />
     </div>
   );

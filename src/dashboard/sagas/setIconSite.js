@@ -17,5 +17,5 @@ export function* setIconSiteSaga(action) {
 }
 
 export function* setIconSiteSagaWatcher() {
-  yield* takeEvery(types.UPLOAD_SUCCEED, setIconSiteSaga);
+  // yield* takeEvery(types.UPLOAD_SUCCEED, setIconSiteSaga);
 }
