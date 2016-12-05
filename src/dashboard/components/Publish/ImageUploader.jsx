@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 
+import styles from './style.css';
 import * as actions from '../../actions';
+import * as deps from '../../deps';
 
 class ImageUploaderClass extends React.Component {
   constructor(props) {
@@ -12,12 +14,7 @@ class ImageUploaderClass extends React.Component {
 
   render() {
     const style = {
-      height: 200,
-      border: 'dashed 2px #999',
-      borderRadius: 5,
-      position: 'relative',
       cursor: 'pointer',
-      width: 200,
     };
     const uploaderProps = {
       style,
@@ -36,17 +33,32 @@ class ImageUploaderClass extends React.Component {
       this.setState({ progress: percent });
     };
 
+    const Icon = deps.elements.Icon;
+
     return (
-      <div className="card">
+      <div>
+        <label className="label" htmlFor="uploadIcon">Icon</label>
+        <p className="control" />
         <DropzoneS3Uploader
           onFinish={this.props.handleFinishedUpload}
           onError={this.props.handleUploadError}
           onProgress={onUploadProgress}
           {...uploaderProps}
-          className="card-content"
+          className={`card ${styles.ImageUploader}`}
         >
-          <div>
-            <p>Drop your app icon here.</p>
+          <div className="card-content">
+            <div className="content has-text-centered">
+              <button
+                id="uploadIcon"
+                className="button is-medium is-outlined"
+                style={{ marginTop: '10px' }}
+              >
+                <Icon small code="cloud-upload" />
+                <span>&nbsp;Browse files</span>
+              </button>
+              <br /><br />
+              Drag your icon here or select a file
+            </div>
           </div>
         </DropzoneS3Uploader>
       </div>

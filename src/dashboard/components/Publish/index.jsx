@@ -34,18 +34,13 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine }) => {
             </span>
           </div>
           <div className="column is-4 is-offset-1">
-            <label className="label" htmlFor="uploadIcon">Icon</label>
-            <p className="control" id="uploadIcon">
-              <button className="button is-medium is-outlined">
-                <span className="icon is-small"><i className="fa fa-cloud-upload"></i></span>
-                <span>upload</span>
-              </button>
-              <span className="help">
-                This shall be a square image with at least <strong>1024x1024px</strong> resolution.
-                <br />
-                Try using your logo, or a unique shape or symbol to make your icon easily recognizable.
-              </span>
-            </p>
+            <ImageUploader />
+            <br />
+            <span className="help">
+              This shall be a square image with at least <strong>1024x1024px</strong> resolution.
+              <br />
+              Try using your logo, or a unique shape or symbol to make your icon easily recognizable.
+            </span>
           </div>
         </div>
         <Button
