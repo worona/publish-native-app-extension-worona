@@ -58,6 +58,7 @@ class ImageUploaderClass extends React.Component {
           onError={this.props.handleUploadError}
           onProgress={onUploadProgress}
           preprocess={this.props.handleUploadStart}
+          hideErrorMessage
           {...uploaderProps}
           className={`card ${styles.ImageUploader}`}
         >
@@ -76,6 +77,7 @@ class ImageUploaderClass extends React.Component {
             </div>
           </div>
         </DropzoneS3Uploader>
+        <span className="help is-danger">{this.props.errorMessage}</span>
       </div>
     );
   }
@@ -84,6 +86,7 @@ class ImageUploaderClass extends React.Component {
 const mapStateToProps = (state) => ({
   siteId: deps.selectors.getSelectedSiteId(state),
   status: selectors.getImageUploaderStatus(state),
+  errorMessage: selectors.getImageUploaderError(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -103,6 +106,7 @@ ImageUploaderClass.propTypes = {
   handleUploadError: React.PropTypes.func.isRequired,
   siteId: React.PropTypes.string,
   status: React.PropTypes.string,
+  errorMessage: React.PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageUploaderClass);

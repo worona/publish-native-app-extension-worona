@@ -13,7 +13,7 @@ export const imageUploaderStatus = (state = '', action) => {
 };
 
 export const imageUploaderError = (state = '', action) => {
-  if (action.type === types.UPLOAD_ERROR) return stringifyError(action.error);
+  if (action.type === types.UPLOAD_ERROR) return stringifyError(action.message);
   return '';
 };
 
