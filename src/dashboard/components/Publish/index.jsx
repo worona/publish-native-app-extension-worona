@@ -159,10 +159,7 @@ const Publish = ({ siteId }) => {
                   </div>
                   <hr />
                   <div className="has-text-centered">
-                    <a className="button is-large is-outlined" style={{ color: '#7f8c8d' }}>
-                      <Icon code="download" />
-                      <span>Download</span>
-                    </a>
+                    <DownloadButton siteId={siteId} />
                     <span className="help" style={{ marginTop: '15px' }}>This may take a while, please don't refresh the page.</span>
                   </div>
                   <br />
@@ -215,7 +212,6 @@ const Publish = ({ siteId }) => {
           </div>
         <QuestionsAndAnswers questions={questions} />
       </div>
-      <DownloadButton siteId={siteId} />
     </div>
   );
 };
