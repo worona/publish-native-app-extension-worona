@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
+import cn from 'classnames';
 
 import styles from './style.css';
 import * as actions from '../../actions';
@@ -11,6 +12,11 @@ class ImageUploaderClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = { progress: 0 };
+    this.onUploadProgress = this.onUploadProgress.bind(this);
+  }
+
+  onUploadProgress(percent) {
+    this.setState({ progress: percent });
   }
 
   render() {
@@ -39,16 +45,13 @@ class ImageUploaderClass extends React.Component {
       multiple: false,
       signingUrlHeaders: { additional: 'Access-Control-Allow-Origin' },
       progressComponent: () => (
-        <progress className="progress is-primary" value={this.state.progress} max="100" />
+        <div className={styles.progress}>
+          <progress className="progress is-primary" value={this.state.progress} max="100" />
+        </div>
       ),
     };
-
-    const onUploadProgress = (percent) => {
-      this.setState({ progress: percent });
-    };
-
     const Icon = deps.elements.Icon;
-
+    const isUploading = this.props.status === 'uploading';
     return (
       <div>
         <label className="label" htmlFor="uploadIcon">Icon</label>
@@ -56,24 +59,32 @@ class ImageUploaderClass extends React.Component {
         <DropzoneS3Uploader
           onFinish={this.props.handleFinishedUpload}
           onError={this.props.handleUploadError}
-          onProgress={onUploadProgress}
+          onProgress={this.onUploadProgress}
           preprocess={this.props.handleUploadStart}
           hideErrorMessage
           {...uploaderProps}
-          className={`card ${styles.ImageUploader}`}
+          className="card"
         >
-          <div className="card-content">
+          <div
+            className={cn(
+              'card-content',
+              { [styles.uploading]: isUploading }
+            )}
+          >
             <div className="content has-text-centered">
               <button
                 id="uploadIcon"
-                className="button is-medium is-outlined"
+                className={cn(
+                  'button', 'is-medium', 'is-outlined',
+                  { 'is-loading': isUploading }
+                )}
                 style={{ marginTop: '10px' }}
               >
                 <Icon small code="cloud-upload" />
                 <span>&nbsp;Browse files</span>
               </button>
               <br /><br />
-              Drag your icon here or select a file
+              {(!isUploading) ? (<span>Drag your icon here or select a file</span>) : null}
             </div>
           </div>
         </DropzoneS3Uploader>
