@@ -1,5 +1,9 @@
 import { dep } from 'worona-deps';
 
+export const actions = {
+  get saveSettingsRequested() { return dep('settings', 'actions', 'saveSettingsRequested')},
+};
+
 export const elements = {
   get Button() { return dep('theme', 'elements', 'Button'); },
   get Icon() { return dep('theme', 'elements', 'Icon'); },
@@ -22,4 +26,8 @@ export const sagaHelpers = {
 
 export const libs = {
   get setSiteIcon() { return dep('sites', 'libs', 'setSiteIcon'); },
+};
+
+export const types = {
+  get DEFAULT_SETTINGS_NEEDED() { return dep('settings', 'types', 'DEFAULT_SETTINGS_NEEDED'); },
 };
