@@ -13,45 +13,46 @@ class ImageUploaderClass extends React.Component {
     super(props);
     this.state = { progress: 0 };
     this.onUploadProgress = this.onUploadProgress.bind(this);
+    this.style = { cursor: 'pointer', padding: '10px' };
+    this.activeStyle = { backgroundColor: '#fff9cd' };
+    this.ProgressComponent = this.ProgressComponent.bind(this);
   }
 
   onUploadProgress(percent) {
     this.setState({ progress: percent });
   }
 
+  ProgressComponent() {
+    return (
+      <div className={styles.progress}>
+        <progress className="progress is-primary" value={this.state.progress} max="100" />
+      </div>
+    );
+  }
+
   render() {
-    const style = {
-      cursor: 'pointer',
-      padding: '10px',
-    };
     switch (this.props.status) {
-      case 'error': style.backgroundColor = '#ffcdcd'; style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #c34949'; break;
-      case 'succeed': style.backgroundColor = '#cdffd8'; style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #49c359'; break;
-      case 'uploading': style.backgroundColor = '#fff9cd'; style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2)'; break;
-      default: style.backgroundColor = '#f5f5f5'; style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2)'; break;
+      case 'error': this.style.backgroundColor = '#ffcdcd'; this.style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #c34949'; break;
+      case 'succeed': this.style.backgroundColor = '#cdffd8'; this.style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #49c359'; break;
+      case 'uploading': this.style.backgroundColor = '#fff9cd'; this.style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2)'; break;
+      default: this.style.backgroundColor = '#f5f5f5'; this.style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.2)'; break;
     }
 
-    const activeStyle = {
-      backgroundColor: '#fff9cd',
-    };
-
     const uploaderProps = {
-      style,
-      activeStyle,
+      style: this.style,
+      activeStyle: this.activeStyle,
       server: 'https://backend.worona.io',
       signingUrl: '/api/v1/s3/sign',
       signingUrlQueryParams: { siteId: this.props.siteId, imgType: 'icon' },
       accept: 'image/*',
       multiple: false,
       signingUrlHeaders: { additional: 'Access-Control-Allow-Origin' },
-      progressComponent: () => (
-        <div className={styles.progress}>
-          <progress className="progress is-primary" value={this.state.progress} max="100" />
-        </div>
-      ),
+      progressComponent: this.ProgressComponent,
     };
+
     const Icon = deps.elements.Icon;
     const isUploading = this.props.status === 'uploading';
+
     return (
       <div>
         <label className="label" htmlFor="uploadIcon">Icon</label>
