@@ -8,13 +8,13 @@ export const imageUploaderStatus = (state = '', action) => {
     case types.UPLOAD_SUCCEED: return 'succeed';
     case types.UPLOAD_ERROR: return 'error';
     default:
-      return '';
+      return state;
   }
 };
 
 export const imageUploaderError = (state = '', action) => {
   if (action.type === types.UPLOAD_ERROR) return stringifyError(action.message);
-  return '';
+  return state;
 };
 
 export default combineReducers({

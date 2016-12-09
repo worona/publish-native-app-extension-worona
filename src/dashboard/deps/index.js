@@ -1,7 +1,7 @@
 import { dep } from 'worona-deps';
 
 export const actions = {
-  get saveSettingsRequested() { return dep('settings', 'actions', 'saveSettingsRequested')},
+  get saveSettingsRequested() { return dep('settings', 'actions', 'saveSettingsRequested'); },
 };
 
 export const elements = {
@@ -16,6 +16,10 @@ export const selectors = {
   get getSelectedSite() { return dep('sites', 'selectors', 'getSelectedSite'); },
   get getNameAndEmail() { return dep('profile', 'selectors', 'getNameAndEmail'); },
   get getSelectedSiteId() { return dep('router', 'selectors', 'getSelectedSiteId'); },
+};
+
+export const selectorCreators = {
+  get getSettingCreator() { return dep('settings', 'selectorCreators', 'getSettingCreator'); },
 };
 
 export const sagaHelpers = {

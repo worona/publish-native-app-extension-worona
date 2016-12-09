@@ -1,10 +1,11 @@
 import { fork } from 'redux-saga/effects';
 import { publishSiteWatcher } from './publishSite';
-import { setIconSiteSagaWatcher } from './settings';
+import { setDefaultSettingsSagaWatcher, setIconSrcSagaWatcher } from './settings';
 
 export default function* publishNativeSagas() {
   yield [
     fork(publishSiteWatcher),
-    fork(setIconSiteSagaWatcher),
+    fork(setDefaultSettingsSagaWatcher),
+    fork(setIconSrcSagaWatcher),
   ];
 }

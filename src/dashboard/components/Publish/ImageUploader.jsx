@@ -101,24 +101,31 @@ const mapStateToProps = (state) => ({
   errorMessage: selectors.getImageUploaderError(state),
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
+  handleUploadError: (message) => dispatch(actions.uploadError(message)),
+  dispatch,
+});
+
+const mergeProps = (stateProps, { dispatch, ...mappedDispatchProps }, ownProps) => ({
+  ...ownProps,
+  ...stateProps,
+  ...mappedDispatchProps,
   handleFinishedUpload: (signResult) => dispatch(
-    actions.uploadSucceed(signResult.filename, ownProps.siteId)
+    actions.uploadSucceed(signResult.filename, stateProps.siteId)
   ),
   handleUploadStart: (file, next) => {
-    dispatch(actions.uploadRequested(ownProps.siteId));
+    dispatch(actions.uploadRequested(stateProps.siteId));
     next(file);
   },
-  handleUploadError: (message) => dispatch(actions.uploadError(message)),
 });
 
 ImageUploaderClass.propTypes = {
   handleFinishedUpload: React.PropTypes.func.isRequired,
   handleUploadStart: React.PropTypes.func.isRequired,
   handleUploadError: React.PropTypes.func.isRequired,
-  siteId: React.PropTypes.string,
+  siteId: React.PropTypes.string.isRequired,
   status: React.PropTypes.string,
   errorMessage: React.PropTypes.string,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageUploaderClass);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(ImageUploaderClass);

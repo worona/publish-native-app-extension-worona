@@ -4,14 +4,14 @@ import { reduxForm, Field } from 'redux-form';
 import Imgix from 'react-imgix';
 
 import * as deps from '../../deps';
-import * as actions from '../../actions';
+import * as selectors from '../../selectors';
 import ImageUploader from './ImageUploader';
 import DownloadButton from './DownloadButton';
 import QuestionsAndAnswers from './QuestionsAndAnswers';
 import questions from './questions';
 import styles from './style.css';
 
-let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId }) => {
+let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
   const Button = deps.elements.Button;
   const Input = deps.elements.Input;
   return (
@@ -49,6 +49,7 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId }) => {
           size="medium"
           disabled={pristine}
           type="submit"
+          loading={waiting}
         >
           <span><strong>Save</strong></span>
         </Button>
@@ -68,18 +69,19 @@ EnterNameAndIconForm.propTypes = {
 };
 
 const mapStateToFormProps = state => ({
-  initialValues: deps.selectors.getSelectedSite(state),
+  initialValues: { name: selectors.getAppName(state) },
 });
 
 EnterNameAndIconForm = reduxForm({
   form: 'EnterNameAndIconForm',
   fields: ['name'],
   getFormState: state => state.publishNative.reduxForm,
+  enableReinitialize: true,
 })(EnterNameAndIconForm);
 EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
 
 
-const Publish = ({ siteId }) => {
+const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
   return (
     <div>
@@ -103,7 +105,7 @@ const Publish = ({ siteId }) => {
             <div width="267px" height="462px">
               <img
                 className={styles.splash}
-                src="http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=http://worona.imgix.net/splashes/watermark/logo-1024.png"
+                src={`http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`}
                 alt="SplahScreen preview for the app"
               />
             </div>
@@ -118,7 +120,7 @@ const Publish = ({ siteId }) => {
           <div className="column is-4 is-offset-1 has-text-centered" style={{ marginTop: '173px' }}>
             <br />
             <div width="128px" height="128px">
-              <Imgix src="https://worona.imgix.net/splashes/watermark/logo-1024.png" height="128px" width="128px" imgProps={{ alt: 'App icon preview' }} />
+              <Imgix src={iconSrc} height="128px" width="128px" imgProps={{ alt: 'App icon preview' }} />
             </div>
             <br />
             <span className="help"><strong>App Icon</strong></span>
@@ -220,10 +222,12 @@ const Publish = ({ siteId }) => {
 
 const mapStateToProps = (state) => ({
   siteId: deps.selectors.getSelectedSiteId(state),
+  iconSrc: selectors.getIconSrc(state),
 });
 
 Publish.propTypes = {
   siteId: React.PropTypes.string,
+  iconSrc: React.PropTypes.string,
 };
 
 export default connect(mapStateToProps)(Publish);

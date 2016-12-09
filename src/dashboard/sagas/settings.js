@@ -1,18 +1,19 @@
 import { takeEvery } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
-import stringifyError from 'stringify-error-message';
 
 import * as deps from '../deps';
-import * as actions from '../actions';
+import * as types from '../types';
 
-export function* setIconSiteSaga(action) {
-  try {
-    const { siteId, fileId } = action;
-    yield deps.sagaHelpers.waitForConnectionEstablished();
-    yield call(deps.libs.setSiteIcon, { _id: siteId, fileId });
-  } catch (error) {
-    yield put(actions.uploadError(stringifyError(error)));
-  }
+export function* setIconSrcSaga(action) {
+  const { siteId, fileId } = action;
+  const name = 'publish-native-app-extension-worona';
+  const woronaInfo = { siteId, name };
+  yield deps.sagaHelpers.waitForConnectionEstablished();
+  yield put(deps.actions.saveSettingsRequested({ iconSrc: `https://worona.imgix.net/sites/${siteId}/icon/${fileId}` }, woronaInfo));
+}
+
+export function* setIconSrcSagaWatcher() {
+  yield* takeEvery(types.UPLOAD_SUCCEED, setIconSrcSaga);
 }
 
 export function* initPublishNativeSettings(action) {
@@ -30,6 +31,7 @@ export function* initPublishNativeSettings(action) {
   yield put(deps.actions.saveSettingsRequested(defaultSettings, woronaInfo));
 }
 
-export function* setIconSiteSagaWatcher() {
+
+export function* setDefaultSettingsSagaWatcher() {
   yield* takeEvery(deps.types.DEFAULT_SETTINGS_NEEDED, initPublishNativeSettings);
 }
