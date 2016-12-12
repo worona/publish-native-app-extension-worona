@@ -10,6 +10,7 @@ import DownloadButton from './DownloadButton';
 import QuestionsAndAnswers from './QuestionsAndAnswers';
 import questions from './questions';
 import styles from './style.css';
+import defaultPixel from './1pxgreyimg.png';
 
 let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
   const Button = deps.elements.Button;
@@ -84,6 +85,9 @@ EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
 
 const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
+  let splashSrc;
+  if (iconSrc === defaultPixel) splashSrc = defaultPixel;
+  else splashSrc = `http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`;
   return (
     <div>
       <div id="EnterNameIcon">
@@ -106,7 +110,7 @@ const Publish = ({ iconSrc, siteId }) => {
             <div width="267px" height="462px">
               <img
                 className={styles.splash}
-                src={`http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`}
+                src={splashSrc}
                 alt="SplahScreen preview for the app"
               />
             </div>
@@ -231,6 +235,10 @@ const mapStateToProps = (state) => ({
 Publish.propTypes = {
   siteId: React.PropTypes.string,
   iconSrc: React.PropTypes.string,
+};
+
+Publish.defaultProps = {
+  iconSrc: defaultPixel,
 };
 
 export default connect(mapStateToProps)(Publish);
