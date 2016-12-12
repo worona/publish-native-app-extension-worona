@@ -14,10 +14,10 @@ import generateImagesArray from '../templates/images.js';
 
 
 function getImagesArray(siteId, iconId) {
-  const baseUrl = (iconId) ? // If user doesn't provide an icon we user Worona images.
-    `https://worona.imgix.net/sites/${siteId}/icon/${iconId}`
+  const baseUrl = (iconId) ? // If user doesn't provide an icon we use Worona defaults.
+    `https://images.worona.io/sites/${siteId}/icon/${iconId}`
     :
-    'https://worona.imgix.net/splashes/watermark/logo-1024.png';
+    'https://images.worona.io/splashes/watermark/logo-1024.png';
   return generateImagesArray(baseUrl);
 }
 
@@ -81,32 +81,33 @@ function createZipFile(siteId, site, user, images, imagesData) {
       { binary: true }
     );
   });
+  www.file('res/.pgbomit', ''); // Reduces the size of the packaged app removing unnecessary resources.
 
   return zip;
 }
 
 export function* publishSiteSaga(action) {
-  // try {
-  const { siteId } = action;
-  const site = yield select(deps.selectors.getSite(siteId));
-  if (site.id !== siteId) throw new Error('Trying to publish a site different than the current one.');
-  const user = yield select(deps.selectors.getNameAndEmail);
-  const images = getImagesArray(site.id, site.iconId);
-  yield put(actions.publishSiteStatusChanged('Downloading images...'));
-  const imagesData = yield call(getAllImagesPromise, images);
-  yield put(actions.publishSiteStatusChanged('All images dowloaded!'));
+  try {
+    const { siteId } = action;
+    const site = yield select(deps.selectors.getSite(siteId));
+    if (site.id !== siteId) throw new Error('Trying to publish a site different than the current one.');
+    const user = yield select(deps.selectors.getNameAndEmail);
+    const images = getImagesArray(site.id, site.iconId);
+    yield put(actions.publishSiteStatusChanged('Downloading images...'));
+    const imagesData = yield call(getAllImagesPromise, images);
+    yield put(actions.publishSiteStatusChanged('All images dowloaded!'));
 
-  yield put(actions.publishSiteStatusChanged('Generating zip file...'));
-  const zip = createZipFile(siteId, site, user, images, imagesData);
-  const content = yield zip.generateAsync({ type: 'blob' });
-  yield put(actions.publishSiteStatusChanged('Zip generated!'));
+    yield put(actions.publishSiteStatusChanged('Generating zip file...'));
+    const zip = createZipFile(siteId, site, user, images, imagesData);
+    const content = yield zip.generateAsync({ type: 'blob' });
+    yield put(actions.publishSiteStatusChanged('Zip generated!'));
 
-  FileSaver.saveAs(content, 'example.zip');
-  yield put(actions.publishSiteStatusChanged('Zip downloaded!'));
-  yield put(actions.publishSiteSucceed());
-  // } catch (error) {
-  //   yield put(actions.publishSiteFailed(error));
-  // }
+    FileSaver.saveAs(content, 'example.zip');
+    yield put(actions.publishSiteStatusChanged('Zip downloaded!'));
+    yield put(actions.publishSiteSucceed());
+  } catch (error) {
+    yield put(actions.publishSiteFailed(error));
+  }
 }
 
 export function* publishSiteWatcher() {
