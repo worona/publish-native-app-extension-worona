@@ -80,6 +80,7 @@ class ImageUploaderClass extends React.Component {
                   { 'is-loading': isUploading }
                 )}
                 style={{ marginTop: '10px' }}
+                type="button"
               >
                 <Icon small code="cloud-upload" />
                 <span>&nbsp;Browse files</span>
