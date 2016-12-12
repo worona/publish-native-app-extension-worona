@@ -155,7 +155,7 @@ const Publish = ({ iconSrc, siteId }) => {
                   &nbsp;Apple Developer Account required - <strong>$99/yr</strong>
                   <br /><br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
-                  &nbsp;Compile the app source code using <a href="https://build.phonegap.com" target="_blank">Phonegap Build</a>.
+                  &nbsp;Compile the app source code using <a href="https://build.phonegap.com" target="_blank" rel="noopener noreferrer">Phonegap Build</a>.
                   <br /><br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;You need a Mac computer to upload the iOS app to the Apple App Store.
@@ -164,7 +164,7 @@ const Publish = ({ iconSrc, siteId }) => {
                 <hr />
                 <div className="has-text-centered">
                   <DownloadButton siteId={siteId} />
-                  <span className="help" style={{ marginTop: '15px' }}>This may take a while, please don't refresh the page.</span>
+                  <span className="help" style={{ marginTop: '15px' }}>This may take a while, please don&apos;t refresh the page.</span>
                 </div>
                 <br />
               </div>
@@ -206,7 +206,9 @@ const Publish = ({ iconSrc, siteId }) => {
                     <span>Get it now</span>
                   </a>
                   <span className="help" style={{ marginTop: '15px' }}>
-                    Questions or doubts? <a href="https://www.worona.org/get-help" target="_blank">Contact us</a> any time.
+                    Questions or doubts?
+                    &nbsp;<a href="https://www.worona.org/get-help" target="_blank" rel="noopener noreferrer">Contact us</a>
+                  &nbsp;at any time.
                   </span>
                 </div>
                 <br />

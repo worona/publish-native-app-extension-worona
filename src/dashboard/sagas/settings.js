@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga';
-import { call, put, select } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 
 import * as deps from '../deps';
 import * as types from '../types';
