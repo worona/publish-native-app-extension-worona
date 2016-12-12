@@ -9,7 +9,7 @@ export function* setIconSrcSaga(action) {
   const name = 'publish-native-app-extension-worona';
   const woronaInfo = { siteId, name };
   yield deps.sagaHelpers.waitForConnectionEstablished();
-  yield put(deps.actions.saveSettingsRequested({ iconSrc: `https://worona.imgix.net/sites/${siteId}/icon/${fileId}` }, woronaInfo));
+  yield put(deps.actions.saveSettingsRequested({ iconSrc: `https://images.worona.io/sites/${siteId}/icon/${fileId}` }, woronaInfo));
 }
 
 export function* setIconSrcSagaWatcher() {
@@ -21,7 +21,7 @@ export function* initPublishNativeSettings(action) {
   yield deps.sagaHelpers.waitForConnectionEstablished();
   const site = yield select(deps.selectors.getSite(siteId));
   const appName = site.name;
-  const iconSrc = 'https://worona.imgix.net/splashes/watermark/logo-1024.png';
+  const iconSrc = 'https://images.worona.io/splashes/watermark/logo-1024.png';
   const defaultSettings = {
     appName,
     iconSrc,

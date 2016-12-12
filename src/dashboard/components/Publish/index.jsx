@@ -87,7 +87,7 @@ const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
   let splashSrc;
   if (iconSrc === defaultPixel) splashSrc = defaultPixel;
-  else splashSrc = `http://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`;
+  else splashSrc = `http://images.worona.io/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`;
   return (
     <div>
       <div id="EnterNameIcon">
