@@ -17,7 +17,6 @@ export function* setIconSrcSagaWatcher() {
 }
 
 export function* initPublishNativeSettings(action) {
-  if (action.name !== 'publish-native-app-extension-worona') return;
   const { name, siteId } = action;
   yield deps.sagaHelpers.waitForConnectionEstablished();
   const site = yield select(deps.selectors.getSite(siteId));
@@ -33,5 +32,7 @@ export function* initPublishNativeSettings(action) {
 
 
 export function* setDefaultSettingsSagaWatcher() {
-  yield* takeEvery(deps.types.DEFAULT_SETTINGS_NEEDED, initPublishNativeSettings);
+  yield* takeEvery(action => action.type === deps.types.DEFAULT_SETTINGS_NEEDED
+    && action.name === 'publish-native-app-extension-worona',
+     initPublishNativeSettings);
 }
