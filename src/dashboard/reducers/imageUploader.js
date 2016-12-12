@@ -15,8 +15,14 @@ export const imageUploaderStatus = (state = '', action) => {
 };
 
 export const imageUploaderError = (state = '', action) => {
-  if (action.type === types.UPLOAD_ERROR) return stringifyError(action.message);
-  return state;
+  switch (action.type) {
+    case types.UPLOAD_ERROR:
+      return stringifyError(action.message);
+    case types.UPLOAD_REQUESTED: case deps.types.ROUTER_DID_CHANGE:
+      return '';
+    default:
+      return state;
+  }
 };
 
 export default () => combineReducers({
