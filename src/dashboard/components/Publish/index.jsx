@@ -70,6 +70,7 @@ EnterNameAndIconForm.propTypes = {
 
 const mapStateToFormProps = state => ({
   initialValues: { name: selectors.getAppName(state) },
+  waiting: state.publishNative.SavingSettings,
 });
 
 EnterNameAndIconForm = reduxForm({

@@ -30,4 +30,6 @@ export const sagaHelpers = {
 
 export const types = {
   get DEFAULT_SETTINGS_NEEDED() { return dep('settings', 'types', 'DEFAULT_SETTINGS_NEEDED'); },
+  get SAVE_SETTINGS_REQUESTED() { return dep('settings', 'types', 'SAVE_SETTINGS_REQUESTED'); },
+  get SAVE_SETTINGS_SUCCEED() { return dep('settings', 'types', 'SAVE_SETTINGS_SUCCEED'); },
 };
