@@ -120,7 +120,7 @@ const Publish = ({ iconSrc, siteId }) => {
           <div className="column is-4 is-offset-1 has-text-centered" style={{ marginTop: '173px' }}>
             <br />
             <div width="128px" height="128px">
-              <Imgix src={iconSrc} height="128px" width="128px" imgProps={{ alt: 'App icon preview' }} />
+              <Imgix src={iconSrc} height="128" width="128" imgProps={{ alt: 'App icon preview' }} />
             </div>
             <br />
             <span className="help"><strong>App Icon</strong></span>
