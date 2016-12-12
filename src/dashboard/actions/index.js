@@ -12,4 +12,3 @@ export const publishSiteFailed = errorObj =>
 export const uploadRequested = (siteId) => ({ type: types.UPLOAD_REQUESTED, siteId });
 export const uploadSucceed = (fileId, siteId) => ({ type: types.UPLOAD_SUCCEED, fileId, siteId });
 export const uploadError = (message) => ({ type: types.UPLOAD_ERROR, message });
-export const editName = (newName) => ({ type: types.EDIT_NAME, newName });

@@ -28,10 +28,6 @@ export const sagaHelpers = {
   },
 };
 
-export const libs = {
-  get setSiteIcon() { return dep('sites', 'libs', 'setSiteIcon'); },
-};
-
 export const types = {
   get DEFAULT_SETTINGS_NEEDED() { return dep('settings', 'types', 'DEFAULT_SETTINGS_NEEDED'); },
 };
