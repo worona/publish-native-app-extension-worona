@@ -96,7 +96,7 @@ export function* publishSiteSaga(action) {
     const content = yield zip.generateAsync({ type: 'blob' });
     yield put(actions.publishSiteStatusChanged('Zip generated!'));
 
-    FileSaver.saveAs(content, 'example.zip');
+    FileSaver.saveAs(content, `${appName}.zip`);
     yield put(actions.publishSiteStatusChanged('Zip downloaded!'));
     yield put(actions.publishSiteSucceed());
   } catch (error) {
