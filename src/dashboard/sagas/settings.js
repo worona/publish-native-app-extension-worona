@@ -13,7 +13,7 @@ export function* setIconSrcSaga(action) {
 }
 
 export function* setIconSrcSagaWatcher() {
-  yield* takeEvery(types.UPLOAD_SUCCEED, setIconSrcSaga);
+  yield* takeEvery(types.UPLOAD_AVAILABLE, setIconSrcSaga);
 }
 
 export function* initPublishNativeSettings(action) {
