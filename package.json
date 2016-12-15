@@ -26,13 +26,13 @@
     "react-imgix": "^5.2.0"
   },
   "devDependencies": {
-    "core-dashboard-worona": "1.2.29",
+    "core-dashboard-worona": "1.2.30",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "worona-packages": "1.2.21"
+    "worona-packages": "1.2.22"
   },
   "authors": [
     "luis@worona.org",

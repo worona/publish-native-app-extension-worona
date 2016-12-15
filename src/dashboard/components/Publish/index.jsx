@@ -77,7 +77,7 @@ const mapStateToFormProps = state => ({
 EnterNameAndIconForm = reduxForm({
   form: 'EnterNameAndIconForm',
   fields: ['name'],
-  getFormState: state => state.publishNative.reduxForm,
+  getFormState: state => state.theme.reduxForm,
   enableReinitialize: true,
 })(EnterNameAndIconForm);
 EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
