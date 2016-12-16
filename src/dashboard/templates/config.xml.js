@@ -153,7 +153,6 @@ export default ({ appId, appName,
     <plugin name="cordova-plugin-actionsheet"         source="npm" />
     <plugin name="cordova-plugin-pindialog"           source="npm" />
     <plugin name="cordova-plugin-spinnerdialog"       source="npm" />
-    <plugin name="cordova-plugin-dialogs"             source="npm" />
     <plugin name="cc.fovea.cordova.purchase"          source="npm">
         <param name="BILLING_KEY" value="XXXX" />
     </plugin>
@@ -184,6 +183,13 @@ export default ({ appId, appName,
     <plugin name="cordova-plugin-keyboard"            source="npm" />
     <plugin name="nl.x-services.plugins.backgroundaudio"  spec="https://github.com/EddyVerbruggen/cordova-plugin-backgroundaudio.git" />
     <plugin name="com.oauthio.plugins.oauthio"            spec="https://github.com/oauth-io/oauth-phonegap" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="~6.0.4" />
+    <plugin name="cordova-plugin-ble-central" source="npm" />
+    <plugin name="cordova-plugin-datepicker" source="npm" />
+    <preference name="UseLegacySwiftLanguageVersion" value="true" />
+    <plugin name="cordova-plugin-dbmeter" spec="~1.1.2" />
+    <plugin name="cordova-plugin-email-composer" source="npm" version="0.8.3" />
+    <plugin name="cordova-plugin-touch-id" spec="~3.2.0" />
 
 </widget>
 `;
