@@ -16,7 +16,7 @@
     "worona",
     "package"
   ],
-  "author": "luis@worona.org",
+  "author": "luis@worona.org, abel@worona.org",
   "license": "MIT",
   "dependencies": {
     "file-saver": "^1.3.3",
@@ -34,37 +34,27 @@
     "eslint-plugin-react": "^6.3.0",
     "worona-packages": "1.2.22"
   },
-  "authors": [
-    "luis@worona.org",
-    "abel@worona.org"
-  ],
   "bugs": {
     "url": "https://github.com/worona/publish-native-app-extension-worona/issues"
   },
   "homepage": "https://github.com/worona/publish-native-app-extension-worona#readme",
   "worona": {
-    "niceName": "Publish Native",
-    "slug": "PublishNative",
-    "type": "extension",
-    "services": [
-      "dashboard"
-    ],
-    "namespace": "publishNative",
-    "menu": {
-      "services": [
-        "app"
-      ],
-      "category": "Publish",
-      "order": 10
-    },
-    "default": false,
-    "core": false,
-    "listed": true,
-    "deactivable": true,
-    "public": true,
     "authors": [
       "luis@worona.org",
       "abel@worona.org"
-    ]
+    ],
+    "private": false,
+    "dashboard": {
+      "type": "extension",
+      "namespace": "publishNative",
+      "default": true,
+      "menu": {
+        "app": {
+          "name": "Publish Native",
+          "category": "Publish",
+          "order": 1
+        }
+      }
+    }
   }
 }
