@@ -11,7 +11,6 @@ function* checkImageAvailability(action) {
   let res;
   do {
     res = yield request.head(url);
-    console.log(res.status);
   } while (res.status !== 200);
   yield put(actions.uploadAvailable(fileId, siteId));
 }
