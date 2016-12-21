@@ -6,3 +6,4 @@ export const PUBLISH_SITE_FAILED = 'publish/PUBLISH_SITE_FAILED';
 export const UPLOAD_REQUESTED = 'publish/UPLOAD_REQUESTED';
 export const UPLOAD_SUCCEED = 'publish/UPLOAD_SUCCEED';
 export const UPLOAD_ERROR = 'publish/UPLOAD_ERROR';
+export const UPLOAD_AVAILABLE = 'publish/UPLOAD_AVAILABLE';

@@ -13,7 +13,7 @@ export function* setIconSrcSaga(action) {
 }
 
 export function* setIconSrcSagaWatcher() {
-  yield* takeEvery(types.UPLOAD_SUCCEED, setIconSrcSaga);
+  yield* takeEvery(types.UPLOAD_AVAILABLE, setIconSrcSaga);
 }
 
 export function* initPublishNativeSettings(action) {
@@ -34,5 +34,5 @@ export function* initPublishNativeSettings(action) {
 export function* setDefaultSettingsSagaWatcher() {
   yield* takeEvery(action => action.type === deps.types.DEFAULT_SETTINGS_NEEDED
     && action.name === 'publish-native-app-extension-worona',
-     initPublishNativeSettings);
+    initPublishNativeSettings);
 }

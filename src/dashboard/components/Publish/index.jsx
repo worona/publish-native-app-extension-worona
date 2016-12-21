@@ -71,13 +71,13 @@ EnterNameAndIconForm.propTypes = {
 
 const mapStateToFormProps = state => ({
   initialValues: { name: selectors.getAppName(state) },
-  waiting: state.publishNative.SavingSettings,
+  waiting: state.settings.savingSettings === 'publish-native-app-extension-worona',
 });
 
 EnterNameAndIconForm = reduxForm({
   form: 'EnterNameAndIconForm',
   fields: ['name'],
-  getFormState: state => state.publishNative.reduxForm,
+  getFormState: state => state.theme.reduxForm,
   enableReinitialize: true,
 })(EnterNameAndIconForm);
 EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
