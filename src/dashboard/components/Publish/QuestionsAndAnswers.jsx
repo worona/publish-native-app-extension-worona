@@ -52,7 +52,7 @@ const QuestionsAndAnswers = ({ questions }) => (
     }
     <div className="content is-medium">
       <strong style={{ color: '#69707a' }}>
-        Have more questions? <a href="https://www.worona.org/get-help">Contact us</a>
+        Have more questions? Visit our <a href="https://faq.worona.org">FAQ page</a> or <a href="https://www.worona.org/get-help">Contact us</a>.
       </strong>
     </div>
   </div>
