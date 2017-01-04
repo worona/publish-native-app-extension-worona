@@ -154,7 +154,7 @@ const Publish = ({ iconSrc, siteId }) => {
                 <hr />
                 <div className="content has-text-centered">
                   <Icon code="exclamation-circle" color="#bdc3c7" />
-                    &nbsp;Google Developer Account required - <strong>$35</strong>
+                    &nbsp;Google Developer Account required - <strong>$25</strong>
                   <br /><br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Apple Developer Account required - <strong>$99/yr</strong>
@@ -177,7 +177,7 @@ const Publish = ({ iconSrc, siteId }) => {
             <br />
             <div className="content">
               <blockquote>
-                After downloading your .zip file above, check out our <a href="https://docs.worona.org">Help Documentation</a>.<br />
+                After downloading your .zip file above, check out our <a href="https://docs.worona.org/dashboard/publish/do-it-yourself.html">Help Documentation</a>.<br />
               It will guide you through the next steps.
               </blockquote>
             </div>
