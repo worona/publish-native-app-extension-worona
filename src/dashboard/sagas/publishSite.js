@@ -4,13 +4,13 @@ import JSZipUtils from 'jszip-utils';
 import { takeEvery } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 
-import indexHtml from 'raw!../templates/index.html';
 import indexJs from 'raw!../templates/index.js';
 import * as deps from '../deps';
 import * as types from '../types';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 import generateConfigXML from '../templates/config.xml.js';
+import generateIndexHTML from '../templates/index.html.js';
 import generateImagesArray from '../templates/images.js';
 
 export const requestFunc = url => new Promise((resolve, reject) => {
@@ -46,9 +46,6 @@ function createZipFile(siteId, site, user, images, imagesData, appName) {
   const zip = new JSZip();
   const www = zip.folder('www');
 
-  /* Generate index.html file */
-  www.file('index.html', indexHtml);
-
   /* Generate config.xml file */
   const configParams = {
     appId: generateAppId(site.url),
@@ -60,6 +57,10 @@ function createZipFile(siteId, site, user, images, imagesData, appName) {
   };
   const xmlFile = generateConfigXML(configParams);
   www.file('config.xml', xmlFile);
+
+  /* Generate index.html file */
+  const indexHtml = generateIndexHTML(configParams);
+  www.file('index.html', indexHtml);
 
   /* javascript code */
   const js = www.folder('js');
