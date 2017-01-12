@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+export default ({ appName, siteId }) =>
+`<!DOCTYPE html>
 <html>
 
 <head>
@@ -18,24 +19,26 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <title>Hello World</title>
+    <title>${appName}</title>
 </head>
 
-<body>
-    <div class="app">
+<body style="margin: 0">
+    <!-- <div class="app">
         <h1 id="title">This is your app with siteId: </h1>
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
         </div>
-    </div>
+    </div> -->
+    <iframe src="https://app.worona.org/?siteId=${siteId}" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0;">
+      Your browser doesn't support iframes
+    </iframe>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
       app.initialize();
-    </script>
+    </script> -->
 
 </body>
 
-</html>
+</html>`;
