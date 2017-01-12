@@ -44,11 +44,9 @@
       "luis@worona.org",
       "abel@worona.org"
     ],
-    "private": false,
     "dashboard": {
       "type": "extension",
       "namespace": "publishNative",
-      "default": true,
       "menu": {
         "app": {
           "niceName": "Publish Native",
