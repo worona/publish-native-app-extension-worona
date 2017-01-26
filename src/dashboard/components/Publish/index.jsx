@@ -8,6 +8,7 @@ import * as selectors from '../../selectors';
 import ImageUploader from './ImageUploader';
 import DownloadButton from './DownloadButton';
 import QuestionsAndAnswers from './QuestionsAndAnswers';
+import cn from 'classnames';
 import questions from './questions';
 import styles from './style.css';
 import defaultPixel from './1pxgreyimg.png';
@@ -34,6 +35,16 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
               We recommend keeping your app name to around <strong>12 characters</strong> or less.
                 Long names may be truncated, which means users will not see all the characters on their phones or tablets.
             </span>
+            <br />
+            <Button
+              color="primary"
+              size="medium"
+              disabled={pristine}
+              type="submit"
+              loading={waiting}
+            >
+              <span><strong>Save</strong></span>
+            </Button>
           </div>
           <div className="column is-4 is-offset-1">
             <ImageUploader />
@@ -45,15 +56,6 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
             </span>
           </div>
         </div>
-        <Button
-          color="primary"
-          size="medium"
-          disabled={pristine}
-          type="submit"
-          loading={waiting}
-        >
-          <span><strong>Save</strong></span>
-        </Button>
       </form>
     </div>
   );
@@ -82,6 +84,30 @@ EnterNameAndIconForm = reduxForm({
 })(EnterNameAndIconForm);
 EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
 
+const SeparateSteps = () => (
+  <span>
+    <br />
+    <hr style={{ marginRight: '15%' }} />
+    <br />
+  </span>
+);
+
+const StepTitle = ({ step, title, subtitle }) => (
+  <div>
+    <div className={cn('subtitle', styles.step)} >
+      Step {step} - {title}
+    </div>
+    <span>
+      {subtitle}
+    </span>
+  </div>
+);
+
+StepTitle.propTypes = {
+  step: React.PropTypes.string,
+  title: React.PropTypes.string,
+  subtitle: React.PropTypes.string,
+};
 
 const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
@@ -91,19 +117,22 @@ const Publish = ({ iconSrc, siteId }) => {
   return (
     <div>
       <div id="EnterNameIcon">
-        <h1 className="title">1. Enter your app name and icon</h1>
-        <div className="subtitle">
-          Enter a name and icon for your mobile app and let users easily identify it amongst other apps.
-        </div>
+        <StepTitle
+          step="1" title="Enter your app name and icon"
+          subtitle="Enter a name and icon for your mobile app and let users easily
+          identify it amongst other apps."
+        />
+        <br />
+        <EnterNameAndIconForm siteId={siteId} />
       </div>
-      <br />
-      <EnterNameAndIconForm siteId={siteId} />
-      <hr />
+      <SeparateSteps />
       <div id="Preview">
-        <h1 className="title">2. Preview</h1>
-        <div className="subtitle">
-          See what your icon and splash screen will look like before publishing.
-        </div>
+        <StepTitle
+          step="2"
+          title="Preview the icon & splash screen"
+          subtitle="Note that the icon & splash screen can't be edited after your
+            app has been submitted to the stores."
+        />
         <div className="columns">
           <div className="column is-4 has-text-centered">
             <br />
@@ -131,16 +160,18 @@ const Publish = ({ iconSrc, siteId }) => {
             <span className="help"><strong>App Icon</strong></span>
           </div>
         </div>
-        <hr />
       </div>
+      <SeparateSteps />
       <div id="Publish">
-        <h1 className="title">3. Publish</h1>
-        <div className="subtitle">
-          Here you can choose whether you want to publish your app by yourself, or if you prefer us to do the work for you.
-        </div>
-        <br />
+        <StepTitle
+          step="3"
+          title="Publish"
+          subtitle="Here you can choose whether you want to publish your app by yourself,
+          or if you prefer us to do the work for you."
+        />
+        <br /><br />
         <div className="columns">
-          <div className="column is-6">
+          <div className="column is-4-desktop is-5-tablet is-offset-1-desktop">
             <div className={`card is-fullwidth ${styles.DIYPublish}`}>
               <div className="card-content">
                 <div className="media">
@@ -170,19 +201,16 @@ const Publish = ({ iconSrc, siteId }) => {
                 <div className="has-text-centered">
                   <DownloadButton siteId={siteId} />
                   <span className="help" style={{ marginTop: '15px' }}>This may take a while, please don&apos;t refresh the page.</span>
+                  <hr />
+                  <span>
+                    After downloading it, check our {' '}
+                    <a href="https://docs.worona.org/dashboard/publish/do-it-yourself.html" target="_blank" rel="noopener noreferrer">Documentation</a>.
+                  </span>
                 </div>
-                <br />
               </div>
             </div>
-            <br />
-            <div className="content">
-              <blockquote>
-                After downloading your .zip file above, check out our <a href="https://docs.worona.org/dashboard/publish/do-it-yourself.html">Help Documentation</a>.<br />
-              It will guide you through the next steps.
-              </blockquote>
-            </div>
           </div>
-          <div className="column is-5">
+          <div className="column is-4-desktop is-5-tablet">
             <div className={`card is-fullwidth ${styles.woronaPublish}`}>
               <div className="card-content">
                 <div className="media">
@@ -221,6 +249,7 @@ const Publish = ({ iconSrc, siteId }) => {
             </div>
           </div>
         </div>
+        <SeparateSteps />
         <QuestionsAndAnswers questions={questions} />
       </div>
     </div>

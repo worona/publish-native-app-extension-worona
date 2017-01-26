@@ -1,4 +1,4 @@
-div.woronaPublish {
+.woronaPublish {
   border-top-color: #27ae60;
   border-top-style: solid;
   border-top-width: 6px;
@@ -7,20 +7,26 @@ div.woronaPublish {
   box-shadow: 0px 0px 20px -2px rgba(0,0,0,0.5);
 }
 
-div.DIYPublish {
+.DIYPublish {
   border-top-color: #95a5a6;
   border-top-style: solid;
   border-top-width: 6px;
 }
 
-img.splash {
+.splash {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-div.progress {
+.progress {
   padding: 0px 20px 20px 20px;
 }
 
-div.uploading {
+.uploading {
   padding: 20px 20px 0px 20px;
+}
+
+.step {
+  font-size: 20px !important;
+  margin-bottom: 5px !important;
+  font-weight: 500 !important;
 }
