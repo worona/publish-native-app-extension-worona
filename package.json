@@ -49,7 +49,7 @@
       "namespace": "publishNative",
       "menu": {
         "app": {
-          "niceName": "Publish Native",
+          "niceName": "App Store & Google Play",
           "category": "Publish",
           "order": 9
         }
