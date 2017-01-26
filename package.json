@@ -32,8 +32,8 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "vendors-dashboard-worona": "1.3.3",
-    "worona-packages": "1.3.9"
+    "vendors-dashboard-worona": "1.3.5",
+    "worona-packages": "1.3.11"
   },
   "bugs": {
     "url": "https://github.com/worona/publish-native-app-extension-worona/issues"
