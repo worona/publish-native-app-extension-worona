@@ -171,8 +171,8 @@ const Publish = ({ iconSrc, siteId }) => {
         />
         <br /><br />
         <div className="columns">
-          <div className="column is-4-desktop is-5-tablet is-offset-1-desktop">
-            <div className={`card is-fullwidth ${styles.DIYPublish}`}>
+          <div className="column is-5">
+            <div className={`card is-fullwidth ${styles.DIYPublish}`} style={{ maxWidth: '400px', margin: '0 auto' }}>
               <div className="card-content">
                 <div className="media">
                   <div className="media-content">
@@ -183,7 +183,7 @@ const Publish = ({ iconSrc, siteId }) => {
                   </div>
                 </div>
                 <hr />
-                <div className="content has-text-centered">
+                <div className="content">
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                     &nbsp;Google Developer Account required - <strong>$25</strong>
                   <br /><br />
@@ -210,7 +210,7 @@ const Publish = ({ iconSrc, siteId }) => {
               </div>
             </div>
           </div>
-          <div className="column is-4-desktop is-5-tablet">
+          <div className="column is-5">
             <div className={`card is-fullwidth ${styles.woronaPublish}`}>
               <div className="card-content">
                 <div className="media">
@@ -222,7 +222,7 @@ const Publish = ({ iconSrc, siteId }) => {
                   </div>
                 </div>
                 <hr />
-                <div className="content has-text-centered">
+                <div className="content" style={{ marginLeft: '10%' }}>
                   <Icon code="check" color="#27ae60" />
                   &nbsp;&nbsp;Premium support <br /><br />
                   <Icon code="check" color="#27ae60" />
