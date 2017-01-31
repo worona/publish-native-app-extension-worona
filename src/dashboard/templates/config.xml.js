@@ -161,7 +161,7 @@ export default ({ appId, appName,
     <plugin name="cordova-plugin-file-opener2"        source="npm" />
     <plugin name="phonegap-plugin-barcodescanner"     source="npm" />
     <plugin name="cordova-plugin-customurlscheme"     source="npm">
-        <param name="URL_SCHEME" value="es.govoid.www.app" />
+        <param name="URL_SCHEME" value="${appId}" />
     </plugin>
     <plugin name="cordova-universal-links-plugin"     source="npm" />
     <plugin name="cordova-plugin-touchid"             source="npm" />
