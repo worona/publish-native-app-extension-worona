@@ -35,10 +35,13 @@ Question = translate('publishNative')(Question);
 
 const QuestionsAndAnswers = ({ questions }) => (
   <div>
-    <hr />
-    <h1 className="title">Any questions?</h1>
-    <div className="subtitle">
-      Here are some answers.
+    <div>
+      <div className="subtitle" style={{ fontSize: '20px', marginBottom: '5px', fontWeight: '500' }} >
+        Any questions?
+      </div>
+      <span>
+        Here are some answers.
+      </span>
     </div>
     <br />
     {questions.map((i18nEntry, index) => (

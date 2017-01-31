@@ -6,6 +6,11 @@ export default () => {
   const RootContainer = deps.elements.RootContainer;
   return (
     <RootContainer>
+      <h1>
+        Submit your app to App Store & Google Play
+      </h1>
+      <hr />
+      <br />
       <Publish />
     </RootContainer>
   );
