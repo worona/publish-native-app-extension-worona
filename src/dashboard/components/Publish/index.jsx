@@ -234,7 +234,11 @@ const Publish = ({ iconSrc, siteId }) => {
                 </div>
                 <hr />
                 <div className="has-text-centered">
-                  <a className="button is-large is-success" style={{ backgroundColor: '#27ae60' }}>
+                  <a
+                    className="button is-large is-success"
+                    style={{ backgroundColor: '#27ae60' }}
+                    href="https://shop.worona.org/publish-checkout"
+                  >
                     <Icon code="check" />
                     <span>Get it now</span>
                   </a>
