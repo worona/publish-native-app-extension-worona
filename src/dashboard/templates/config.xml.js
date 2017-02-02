@@ -1,5 +1,4 @@
-export default ({ appId, appName,
-  siteURL, userEmail, userName, siteId }) =>
+export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
 `<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
@@ -161,7 +160,7 @@ export default ({ appId, appName,
     <plugin name="cordova-plugin-file-opener2"        source="npm" />
     <plugin name="phonegap-plugin-barcodescanner"     source="npm" />
     <plugin name="cordova-plugin-customurlscheme"     source="npm">
-        <param name="URL_SCHEME" value="es.govoid.www.app" />
+        <param name="URL_SCHEME" value="${appId}" />
     </plugin>
     <plugin name="cordova-universal-links-plugin"     source="npm" />
     <plugin name="cordova-plugin-touchid"             source="npm" />
@@ -190,6 +189,11 @@ export default ({ appId, appName,
     <plugin name="cordova-plugin-dbmeter" spec="~1.1.2" />
     <plugin name="cordova-plugin-email-composer" source="npm" version="0.8.3" />
     <plugin name="cordova-plugin-touch-id" spec="~3.2.0" />
-
+    <plugin name="cordova-hot-code-push-plugin" source="npm" />
+    <chcp>
+      <config-file url="https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
+      <auto-download enabled="false"/>
+      <auto-install enabled="false"/>
+    </chcp>
 </widget>
 `;
