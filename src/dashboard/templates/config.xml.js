@@ -24,6 +24,8 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <preference name="android-targetSdkVersion" value="23" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <preference name="phonegap-version"       value="cli-6.5.0" />
+    <!-- iOS specific settings -->
+    <preference name="show-splash-screen-spinner" value="false" />
 
 
     <!-- Define app icon and splashscreen for each platform. -->
