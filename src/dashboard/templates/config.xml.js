@@ -23,7 +23,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <preference name="android-minSdkVersion" value="15" />
     <preference name="android-targetSdkVersion" value="23" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
-    <preference name="phonegap-version"       value="cli-6.3.0" />
+    <preference name="phonegap-version"       value="cli-6.5.0" />
 
 
     <!-- Define app icon and splashscreen for each platform. -->
