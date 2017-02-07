@@ -78,7 +78,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <!-- Worona core plugins -->
     <plugin name="cordova-plugin-appsettings"         source="npm" />
     <!-- siteId preference. -->
-    <preference name="siteId" value="${siteId}" />
+    <preference name="siteid" value="${siteId}" />
 
     <!-- PhoneGap core plugins -->
     <plugin name="cordova-plugin-splashscreen"        source="npm" />
