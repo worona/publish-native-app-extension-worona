@@ -22,10 +22,13 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-minSdkVersion" value="15" />
     <preference name="android-targetSdkVersion" value="23" />
+    <preference name="disallowOverscroll" value="true" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <preference name="phonegap-version"       value="cli-6.5.0" />
     <!-- iOS specific settings -->
     <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="webviewbounce" value="false" />
 
 
     <!-- Define app icon and splashscreen for each platform. -->
@@ -75,7 +78,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <!-- Worona core plugins -->
     <plugin name="cordova-plugin-appsettings"         source="npm" />
     <!-- siteId preference. -->
-    <preference name="siteId" value="${siteId}" />
+    <preference name="siteid" value="${siteId}" />
 
     <!-- PhoneGap core plugins -->
     <plugin name="cordova-plugin-splashscreen"        source="npm" />
@@ -147,55 +150,15 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     </platform>
 
     <!-- Third party plugins -->
-    <plugin name="cordova-plugin-x-socialsharing"     source="npm" />
+    <plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <plugin name="cordova-plugin-admob"               source="npm" />
-    <plugin name="de.appplant.cordova.plugin.local-notification" />
-    <plugin name="cordova-plugin-x-toast"             source="npm" />
-    <plugin name="cordova-plugin-actionsheet"         source="npm" />
-    <plugin name="cordova-plugin-pindialog"           source="npm" />
-    <plugin name="cordova-plugin-spinnerdialog"       source="npm" />
-    <plugin name="cc.fovea.cordova.purchase"          source="npm">
-        <param name="BILLING_KEY" value="XXXX" />
-    </plugin>
-    <plugin name="polarcape-cordova-plugin-document-handler" source="npm" />
-    <plugin name="cordova-plugin-wkwebview-engine"    source="npm" />
-    <plugin name="cordova-plugin-file-opener2"        source="npm" />
-    <plugin name="phonegap-plugin-barcodescanner"     source="npm" />
-    <plugin name="cordova-plugin-customurlscheme"     source="npm">
-        <param name="URL_SCHEME" value="${appId}" />
-    </plugin>
-    <plugin name="cordova-universal-links-plugin"     source="npm" />
-    <plugin name="cordova-plugin-touchid"             source="npm" />
-    <plugin name="cordova-plugin-3dtouch"             source="npm" />
-    <plugin name="cordova-plugin-geofence"            source="npm" />
-    <plugin name="cordova-plugin-image-picker"        source="npm" />
-    <plugin name="cordova-plugin-insomnia"            source="npm" />
-    <plugin name="com.unarin.cordova.beacon"          source="npm" />
-    <plugin name="cordova-plugin-nativestorage"       source="npm" />
-    <plugin name="cordova-plugin-badge"               source="npm" />
-    <plugin name="pushwoosh-cordova-plugin">
-        <variable name="LOG_LEVEL" value="DEBUG" />
-        <variable name="IOS_FOREGROUND_ALERT_TYPE" value="NONE" />
-        <variable name="ANDROID_FOREGROUND_PUSH" value="false" />
-    </plugin>
-    <plugin name="cordova-plugin-apprate"             source="npm" />
-    <plugin name="com.darktalker.cordova.screenshot"  source="npm" />
-    <plugin name="cordova-plugin-calendar"            source="npm" />
-    <plugin name="cordova-plugin-keyboard"            source="npm" />
-    <plugin name="nl.x-services.plugins.backgroundaudio"  spec="https://github.com/EddyVerbruggen/cordova-plugin-backgroundaudio.git" />
-    <plugin name="com.oauthio.plugins.oauthio"            spec="https://github.com/oauth-io/oauth-phonegap" />
-    <plugin name="phonegap-plugin-barcodescanner" spec="~6.0.4" />
-    <plugin name="cordova-plugin-ble-central" source="npm" />
-    <plugin name="cordova-plugin-datepicker" source="npm" />
-    <preference name="UseLegacySwiftLanguageVersion" value="true" />
-    <plugin name="cordova-plugin-dbmeter" spec="~1.1.2" />
-    <plugin name="cordova-plugin-email-composer" source="npm" version="0.8.3" />
-    <plugin name="cordova-plugin-touch-id" spec="~3.2.0" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.0.10" source="npm" />
     <plugin name="cordova-hot-code-push-plugin" source="npm" />
     <chcp>
       <config-file url="https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
       <auto-download enabled="false"/>
       <auto-install enabled="false"/>
+      <native-interface version="1"/>
     </chcp>
 </widget>
 `;
