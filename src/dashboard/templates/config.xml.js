@@ -147,7 +147,6 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     </platform>
 
     <!-- Third party plugins -->
-    <!-- Third party plugins -->
     <plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <plugin name="cordova-plugin-admob"               source="npm" />
     <plugin name="onesignal-cordova-plugin" spec="^2.0.10" source="npm" />
@@ -156,6 +155,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
       <config-file url="https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
       <auto-download enabled="false"/>
       <auto-install enabled="false"/>
+      <native-interface version="1"/>
     </chcp>
 </widget>
 `;
