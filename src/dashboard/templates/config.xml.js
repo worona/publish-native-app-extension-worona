@@ -22,10 +22,13 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-minSdkVersion" value="15" />
     <preference name="android-targetSdkVersion" value="23" />
+    <preference name="disallowOverscroll" value="true" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <preference name="phonegap-version"       value="cli-6.5.0" />
     <!-- iOS specific settings -->
     <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="webviewbounce" value="false" />
 
 
     <!-- Define app icon and splashscreen for each platform. -->
