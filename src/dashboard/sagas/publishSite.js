@@ -37,12 +37,12 @@ function generateAppId(rawUrl) {
   const directories = url.split('/');
   const domains = directories.shift().split('.');
   domains.reverse();
-  const appId = domains.concat(directories.concat([ 'app' ])).join('.');
+  const appId = domains.concat(directories.concat(['app'])).join('.');
   return appId;
 }
 
 function createZipFile(
-  { siteId, site, user, images, imagesData, indexHtml, appName, chcpJson, chcpManifest },
+  { siteId, site, user, images, imagesData, indexHtml, appName, chcpJson, chcpManifest, userId },
 ) {
   /* Creating the zip file */
   const zip = new JSZip();
@@ -56,6 +56,7 @@ function createZipFile(
     userEmail: user.email,
     userName: user.name,
     siteId,
+    userId,
   };
   const xmlFile = generateConfigXML(configParams);
   www.file('config.xml', xmlFile);
@@ -85,6 +86,7 @@ export function* publishSiteSaga({ siteId }) {
     const iconSrc = yield select(selectors.getIconSrc);
     const appName = yield select(selectors.getAppName);
     const user = yield select(deps.selectors.getNameAndEmail);
+    const userId = yield select(deps.selectors.getUserId);
     const images = generateImagesArray(iconSrc);
     yield put(actions.publishSiteStatusChanged('Downloading images...'));
     const imagesData = yield call(getAllImagesPromise, images);
@@ -114,6 +116,7 @@ export function* publishSiteSaga({ siteId }) {
       appName,
       chcpJson,
       chcpManifest,
+      userId,
     });
     const content = yield zip.generateAsync({ type: 'blob' });
     yield put(actions.publishSiteStatusChanged('Zip generated!'));
@@ -127,5 +130,5 @@ export function* publishSiteSaga({ siteId }) {
 }
 
 export function* publishSiteWatcher() {
-  yield [ takeEvery(types.PUBLISH_SITE_REQUESTED, publishSiteSaga) ];
+  yield takeEvery(types.PUBLISH_SITE_REQUESTED, publishSiteSaga);
 }

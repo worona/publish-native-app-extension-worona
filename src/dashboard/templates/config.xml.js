@@ -1,4 +1,4 @@
-export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
+export default ({ appId, appName, siteURL, userEmail, userName, siteId, userId }) =>
 `<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
@@ -79,6 +79,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <plugin name="cordova-plugin-appsettings"         source="npm" />
     <!-- siteId preference. -->
     <preference name="siteid" value="${siteId}" />
+    <preference name="userid" value="${userId}" />
 
     <!-- PhoneGap core plugins -->
     <plugin name="cordova-plugin-splashscreen"        source="npm" />
