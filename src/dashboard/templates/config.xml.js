@@ -89,8 +89,13 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, userId }
     <preference name="SplashMaintainAspectRatio"      value="true" />
 
     <plugin name="cordova-plugin-battery-status"      source="npm" />
-    <plugin name="cordova-plugin-camera"              source="npm" />
-    <plugin name="cordova-plugin-media-capture"       source="npm" />
+    <plugin name="cordova-plugin-camera"              source="npm" >
+      <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
+    <plugin name="cordova-plugin-media-capture"       source="npm"  >
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
     <plugin name="cordova-plugin-contacts"            source="npm" />
     <plugin name="cordova-plugin-device"              source="npm" />
     <plugin name="cordova-plugin-device-motion"       source="npm" />
