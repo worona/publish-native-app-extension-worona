@@ -1,4 +1,4 @@
-export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
+export default ({ appId, appName, siteURL, userEmail, userName, siteId, userId }) =>
 `<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
@@ -79,6 +79,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <plugin name="cordova-plugin-appsettings"         source="npm" />
     <!-- siteId preference. -->
     <preference name="siteid" value="${siteId}" />
+    <preference name="userid" value="${userId}" />
 
     <!-- PhoneGap core plugins -->
     <plugin name="cordova-plugin-splashscreen"        source="npm" />
@@ -88,8 +89,13 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
     <preference name="SplashMaintainAspectRatio"      value="true" />
 
     <plugin name="cordova-plugin-battery-status"      source="npm" />
-    <plugin name="cordova-plugin-camera"              source="npm" />
-    <plugin name="cordova-plugin-media-capture"       source="npm" />
+    <plugin name="cordova-plugin-camera"              source="npm" >
+      <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
+    <plugin name="cordova-plugin-media-capture"       source="npm"  >
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
     <plugin name="cordova-plugin-contacts"            source="npm" />
     <plugin name="cordova-plugin-device"              source="npm" />
     <plugin name="cordova-plugin-device-motion"       source="npm" />
