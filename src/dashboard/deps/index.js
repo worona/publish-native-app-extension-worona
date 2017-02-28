@@ -16,10 +16,11 @@ export const selectors = {
   get getNameAndEmail() { return dep('profile', 'selectors', 'getNameAndEmail'); },
   get getSelectedSiteId() { return dep('router', 'selectors', 'getSelectedSiteId'); },
   get getUserId() { return dep('accounts', 'selectors', 'getUserId'); },
+  get getSavingSettings() { return dep('settings', 'selectors', 'getSavingSettings'); },
 };
 
 export const selectorCreators = {
-  get getSettingCreator() { return dep('settings', 'selectorCreators', 'getSettingCreator'); },
+  get getSetting() { return dep('settings', 'selectorCreators', 'getSetting'); },
 };
 
 export const sagaHelpers = {

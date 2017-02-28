@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as deps from '../../deps';
 
-const DownloadButton = ({ requestPublishSite, siteId, loading }) => {
+const DownloadButton = ({ requestPublishSite, loading }) => {
   const Button = deps.elements.Button;
   const Icon = deps.elements.Icon;
   return (
@@ -22,11 +22,10 @@ const DownloadButton = ({ requestPublishSite, siteId, loading }) => {
 
 DownloadButton.propTypes = {
   requestPublishSite: React.PropTypes.func.isRequired,
-  siteId: React.PropTypes.string,
   loading: React.PropTypes.bool,
 };
 
-const mapStateToDownloadButtonProps = (state) => ({
+const mapStateToDownloadButtonProps = state => ({
   loading: state.publishNative.Downloading,
 });
 
@@ -34,4 +33,6 @@ const mapDispatchToDownloadButtonProps = (dispatch, ownProps) => ({
   requestPublishSite: () => dispatch(actions.publishSiteRequested(ownProps.siteId)),
 });
 
-export default connect(mapStateToDownloadButtonProps, mapDispatchToDownloadButtonProps)(DownloadButton);
+export default connect(mapStateToDownloadButtonProps, mapDispatchToDownloadButtonProps)(
+  DownloadButton,
+);
