@@ -1,11 +1,11 @@
-export default ({ appId, appName, siteURL, userEmail, userName, siteId }) =>
+export default ({ appId, appName, siteURL, userEmail, userName, siteId, version }) =>
 `<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "${appId}"
-        version   = "1.0.0">
+        version   = "${version}">
 
     <name>${appName}</name>
 

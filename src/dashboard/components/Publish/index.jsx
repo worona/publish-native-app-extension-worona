@@ -19,13 +19,12 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
   return (
     <div>
       <form
-        onSubmit={handleSubmit((values, dispatch) =>
-          dispatch(
-            deps.actions.saveSettingsRequested({ appName: values.name }, {
-              siteId,
-              name: 'publish-native-app-extension-worona',
-            }),
-          ))}
+        onSubmit={handleSubmit((values, dispatch) => dispatch(
+          deps.actions.saveSettingsRequested({ appName: values.name }, {
+            siteId,
+            name: 'publish-native-app-extension-worona',
+          }),
+        ))}
       >
         <div className="columns">
           <div className="column is-4">

@@ -7,3 +7,5 @@ export const getAppName = state =>
   deps.selectorCreators.getSetting('publishNative', 'appName')(state);
 export const getIconSrc = state =>
   deps.selectorCreators.getSetting('publishNative', 'iconSrc')(state);
+export const getVersion = state =>
+  deps.selectorCreators.getSetting('publishNative', 'version')(state) || '1.0.0';
