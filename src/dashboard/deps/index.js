@@ -12,7 +12,6 @@ export const elements = {
 };
 
 export const selectors = {
-  get getSite() { return dep('sites', 'selectors', 'getSite'); },
   get getNameAndEmail() { return dep('profile', 'selectors', 'getNameAndEmail'); },
   get getSelectedSiteId() { return dep('router', 'selectors', 'getSelectedSiteId'); },
   get getUserId() { return dep('accounts', 'selectors', 'getUserId'); },
@@ -21,6 +20,7 @@ export const selectors = {
 
 export const selectorCreators = {
   get getSetting() { return dep('settings', 'selectorCreators', 'getSetting'); },
+  get getSite() { return dep('sites', 'selectorCreators', 'getSite'); },
 };
 
 export const sagaHelpers = {
