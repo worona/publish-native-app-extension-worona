@@ -20,7 +20,7 @@ export function* setIconSrcSagaWatcher() {
 
 export function* initPublishNativeSettings({ name, siteId }) {
   yield deps.sagaHelpers.waitForConnectionEstablished();
-  const site = yield select(deps.selectors.getSite(siteId));
+  const site = yield select(deps.selectorCreators.getSite(siteId));
   yield put(
     deps.actions.saveSettingsRequested(
       {
