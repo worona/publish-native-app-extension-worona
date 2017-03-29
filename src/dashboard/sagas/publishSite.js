@@ -81,7 +81,7 @@ function createZipFile(
 
 export function* publishSiteSaga({ siteId }) {
   try {
-    const site = yield select(deps.selectors.getSite(siteId));
+    const site = yield select(deps.selectorCreators.getSite(siteId));
     if (site.id !== siteId)
       throw new Error('Trying to publish a site different than the current one.');
     const iconSrc = yield select(selectors.getIconSrc);
