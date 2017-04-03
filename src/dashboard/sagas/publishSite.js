@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 import JSZipUtils from 'jszip-utils';
@@ -11,12 +12,13 @@ import * as selectors from '../selectors';
 import generateConfigXML from '../templates/config.xml.js';
 import generateImagesArray from '../templates/images.js';
 
-export const requestFunc = url => new Promise((resolve, reject) => {
-  JSZipUtils.getBinaryContent(url, (err, data) => {
-    if (err) reject(err);
-    else resolve(data);
+export const requestFunc = url =>
+  new Promise((resolve, reject) => {
+    JSZipUtils.getBinaryContent(url, (err, data) => {
+      if (err) reject(err);
+      else resolve(data);
+    });
   });
-});
 
 function getAllImagesPromise(images) {
   const imageRequests = images.map(({ url }) => requestFunc(url));
@@ -43,7 +45,19 @@ function generateAppId(rawUrl) {
 }
 
 function createZipFile(
-  { siteId, site, user, images, imagesData, indexHtml, appName, chcpJson, chcpManifest, version }
+  {
+    siteId,
+    site,
+    user,
+    images,
+    imagesData,
+    indexHtml,
+    appName,
+    chcpJson,
+    chcpManifest,
+    version,
+    cdn,
+  },
 ) {
   /* Creating the zip file */
   const zip = new JSZip();
@@ -58,6 +72,7 @@ function createZipFile(
     userName: user.name,
     siteId,
     version,
+    cdn,
   };
   const xmlFile = generateConfigXML(configParams);
   www.file('config.xml', xmlFile);
@@ -96,17 +111,18 @@ export function* publishSiteSaga({ siteId }) {
     yield put(actions.publishSiteStatusChanged('Downloading images...'));
     const imagesData = yield call(getAllImagesPromise, images);
     yield put(actions.publishSiteStatusChanged('Downloading files...'));
+    const cdn = window.location.host.startsWith('dashboard') ? 'cdn' : 'precdn';
     const indexHtml = yield call(
       requestFunc,
-      `https://cdn.worona.io/api/v1/chcp/site/${siteId}/index.html`
+      `https://${cdn}.worona.io/api/v1/chcp/site/${siteId}/index.html`,
     );
     const chcpJson = yield call(
       requestFunc,
-      `https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.json`
+      `https://${cdn}.worona.io/api/v1/chcp/site/${siteId}/chcp.json`,
     );
     const chcpManifest = yield call(
       requestFunc,
-      `https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.manifest`
+      `https://${cdn}.worona.io/api/v1/chcp/site/${siteId}/chcp.manifest`,
     );
     yield put(actions.publishSiteStatusChanged('All images and index.html dowloaded!'));
 
@@ -122,6 +138,7 @@ export function* publishSiteSaga({ siteId }) {
       chcpJson,
       chcpManifest,
       version,
+      cdn,
     });
     const content = yield zip.generateAsync({ type: 'blob' });
     yield put(actions.publishSiteStatusChanged('Zip generated!'));
@@ -139,7 +156,7 @@ export function* increaseVersion({ siteId, version }) {
     deps.actions.saveSettingsRequested(
       { version },
       { siteId, name: 'publish-native-app-extension-worona' },
-    )
+    ),
   );
 }
 

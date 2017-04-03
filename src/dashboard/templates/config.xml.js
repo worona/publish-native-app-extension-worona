@@ -1,4 +1,4 @@
-export default ({ appId, appName, siteURL, userEmail, userName, siteId, version }) =>
+export default ({ appId, appName, siteURL, userEmail, userName, siteId, version, cdn }) =>
 `<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
@@ -77,6 +77,7 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, version 
     <!-- Plugins -->
     <!-- Worona core plugins -->
     <plugin name="cordova-plugin-appsettings"         source="npm" />
+
     <!-- siteId preference. -->
     <preference name="siteid" value="${siteId}" />
 
@@ -160,10 +161,17 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, version 
     <plugin name="onesignal-cordova-plugin" spec="^2.0.10" source="npm" />
     <plugin name="cordova-hot-code-push-plugin" source="npm" />
     <chcp>
-      <config-file url="https://cdn.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
+      <config-file url="https://${cdn}.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
       <auto-download enabled="false"/>
       <auto-install enabled="false"/>
       <native-interface version="1"/>
     </chcp>
+
+    <plugin name="cordova-plugin-wkwebview-engine"/>
+    <feature name="CDVWKWebViewEngine">
+      <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="AllowBackForwardNavigationGestures" value="true" />
 </widget>
 `;
