@@ -166,12 +166,5 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, version,
       <auto-install enabled="false"/>
       <native-interface version="1"/>
     </chcp>
-
-    <plugin name="cordova-plugin-wkwebview-engine"/>
-    <feature name="CDVWKWebViewEngine">
-      <param name="ios-package" value="CDVWKWebViewEngine" />
-    </feature>
-    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-    <preference name="AllowBackForwardNavigationGestures" value="true" />
 </widget>
 `;
