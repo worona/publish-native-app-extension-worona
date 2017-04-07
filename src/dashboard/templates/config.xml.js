@@ -162,8 +162,8 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, version,
     <plugin name="cordova-hot-code-push-plugin" source="npm" />
     <chcp>
       <config-file url="https://${cdn}.worona.io/api/v1/chcp/site/${siteId}/chcp.json"/>
-      <auto-download enabled="false"/>
-      <auto-install enabled="false"/>
+      <auto-download enabled="true"/>
+      <auto-install enabled="true"/>
       <native-interface version="1"/>
     </chcp>
 </widget>
