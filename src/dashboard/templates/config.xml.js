@@ -89,25 +89,14 @@ export default ({ appId, appName, siteURL, userEmail, userName, siteId, version,
     <preference name="SplashMaintainAspectRatio"      value="true" />
 
     <plugin name="cordova-plugin-battery-status"      source="npm" />
-    <plugin name="cordova-plugin-camera"              source="npm" >
-      <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
-      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
-    </plugin>
-    <plugin name="cordova-plugin-media-capture"       source="npm"  >
-      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
-    </plugin>
-    <plugin name="cordova-plugin-contacts"            source="npm" />
     <plugin name="cordova-plugin-device"              source="npm" />
     <plugin name="cordova-plugin-device-motion"       source="npm" />
     <plugin name="cordova-plugin-device-orientation"  source="npm" />
     <plugin name="cordova-plugin-dialogs"             source="npm" />
     <plugin name="cordova-plugin-file"                source="npm" />
     <plugin name="cordova-plugin-file-transfer"       source="npm" />
-    <plugin name="cordova-plugin-geolocation"         source="npm" />
     <plugin name="cordova-plugin-globalization"       source="npm" />
     <plugin name="cordova-plugin-inappbrowser"        source="npm" />
-    <plugin name="cordova-plugin-media-capture"       source="npm" />
-    <plugin name="cordova-plugin-media"               source="npm" />
     <plugin name="cordova-plugin-network-information" source="npm" />
     <plugin name="cordova-plugin-statusbar"           source="npm" />
     <plugin name="cordova-plugin-vibration"           source="npm" />
