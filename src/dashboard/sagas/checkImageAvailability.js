@@ -7,7 +7,7 @@ import * as actions from '../actions';
 
 function* checkImageAvailability(action) {
   const { fileId, siteId } = action;
-  const url = `https://images.worona.io/sites/${siteId}/icon/${fileId}`;
+  const url = `https://worona.imgix.net/sites/${siteId}/icon/${fileId}`;
   let res;
   do {
     res = yield request.head(url);
