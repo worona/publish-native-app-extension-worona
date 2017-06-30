@@ -19,12 +19,17 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
   return (
     <div>
       <form
-        onSubmit={handleSubmit((values, dispatch) => dispatch(
-          deps.actions.saveSettingsRequested({ appName: values.name }, {
-            siteId,
-            name: 'publish-native-app-extension-worona',
-          }),
-        ))}
+        onSubmit={handleSubmit((values, dispatch) =>
+          dispatch(
+            deps.actions.saveSettingsRequested(
+              { appName: values.name },
+              {
+                siteId,
+                name: 'publish-native-app-extension-worona',
+              }
+            )
+          )
+        )}
       >
         <div className="columns">
           <div className="column is-4">
@@ -42,7 +47,9 @@ let EnterNameAndIconForm = ({ handleSubmit, pristine, siteId, waiting }) => {
               type="submit"
               loading={waiting}
             >
-              <span><strong>Save</strong></span>
+              <span>
+                <strong>Save</strong>
+              </span>
             </Button>
           </div>
           <div className="column is-4 is-offset-1">
@@ -84,15 +91,14 @@ EnterNameAndIconForm = reduxForm({
 })(EnterNameAndIconForm);
 EnterNameAndIconForm = connect(mapStateToFormProps)(EnterNameAndIconForm);
 
-const SeparateSteps = () => (
+const SeparateSteps = () =>
   <span>
     <br />
     <hr style={{ marginRight: '15%' }} />
     <br />
-  </span>
-);
+  </span>;
 
-const StepTitle = ({ step, title, subtitle }) => (
+const StepTitle = ({ step, title, subtitle }) =>
   <div>
     <div className={cn('subtitle', styles.step)}>
       Step {step} - {title}
@@ -100,8 +106,7 @@ const StepTitle = ({ step, title, subtitle }) => (
     <span>
       {subtitle}
     </span>
-  </div>
-);
+  </div>;
 
 StepTitle.propTypes = {
   step: React.PropTypes.string,
@@ -113,7 +118,8 @@ const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
   let splashSrc;
   if (iconSrc === defaultPixel) splashSrc = defaultPixel;
-  else splashSrc = `https://worona.imgix.net/splashes/watermark/worona-splash.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${iconSrc}`;
+  else
+    splashSrc = `${iconSrc}?profile=Splash`;
   return (
     <div>
       <div id="EnterNameIcon">
@@ -144,7 +150,8 @@ const Publish = ({ iconSrc, siteId }) => {
                 alt="SplahScreen preview for the app"
               />
             </div>
-            <br /><br />
+            <br />
+            <br />
             <span className="help">
               <strong>Splash Screen</strong>
             </span>
@@ -155,15 +162,17 @@ const Publish = ({ iconSrc, siteId }) => {
           <div className="column is-4 is-offset-1 has-text-centered" style={{ marginTop: '173px' }}>
             <br />
             <div width="128px" height="128px">
-              <Imgix
-                src={iconSrc}
+              <img
+                src={`${iconSrc}?profile=Icon`}
                 height="128"
                 width="128"
-                imgProps={{ alt: 'App icon preview' }}
+                alt="App icon preview"
               />
             </div>
             <br />
-            <span className="help"><strong>App Icon</strong></span>
+            <span className="help">
+              <strong>App Icon</strong>
+            </span>
           </div>
         </div>
       </div>
@@ -175,7 +184,8 @@ const Publish = ({ iconSrc, siteId }) => {
           subtitle="Here you can choose whether you want to publish your app by yourself,
           or if you prefer us to do the work for you."
         />
-        <br /><br />
+        <br />
+        <br />
         <div className="columns">
           <div className="column is-5">
             <div
@@ -186,9 +196,7 @@ const Publish = ({ iconSrc, siteId }) => {
                 <div className="media">
                   <div className="media-content">
                     <br />
-                    <p className="title is-4 has-text-centered">
-                      Do it yourself{' '}
-                    </p>
+                    <p className="title is-4 has-text-centered">Do it yourself </p>
                     <p className="subtitle is-6 has-text-centered" style={{ paddingTop: '10px' }}>
                       A solution for developers
                     </p>
@@ -198,17 +206,20 @@ const Publish = ({ iconSrc, siteId }) => {
                 <div className="content">
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Google Developer Account required - <strong>$25</strong>
-                  <br /><br />
+                  <br />
+                  <br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Apple Developer Account required - <strong>$99/yr</strong>
-                  <br /><br />
+                  <br />
+                  <br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;Compile the app source code using{' '}
                   <a href="https://build.phonegap.com" target="_blank" rel="noopener noreferrer">
                     Phonegap Build
                   </a>
                   .
-                  <br /><br />
+                  <br />
+                  <br />
                   <Icon code="exclamation-circle" color="#bdc3c7" />
                   &nbsp;You need a Mac computer to upload the iOS app to the Apple App Store.
                   <br />
@@ -241,10 +252,8 @@ const Publish = ({ iconSrc, siteId }) => {
                 <div className="media">
                   <div className="media-content">
                     <br />
-                    <p className="title is-4 has-text-centered">Worona Publish </p><p
-                      className="subtitle is-6 has-text-centered"
-                      style={{ paddingTop: '10px' }}
-                    >
+                    <p className="title is-4 has-text-centered">Worona Publish </p>
+                    <p className="subtitle is-6 has-text-centered" style={{ paddingTop: '10px' }}>
                       We take care of everything
                     </p>
                   </div>
@@ -252,11 +261,14 @@ const Publish = ({ iconSrc, siteId }) => {
                 <hr />
                 <div className="content" style={{ marginLeft: '10%' }}>
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;Premium support <br /><br />
+                  &nbsp;&nbsp;Premium support <br />
+                  <br />
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;Your app published in 7 days <br /><br />
+                  &nbsp;&nbsp;Your app published in 7 days <br />
+                  <br />
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;No developer accounts required <br /><br />
+                  &nbsp;&nbsp;No developer accounts required <br />
+                  <br />
                   <Icon code="check" color="#27ae60" />
                   &nbsp;&nbsp;290€&nbsp;one time payment <br />
                 </div>
@@ -271,8 +283,7 @@ const Publish = ({ iconSrc, siteId }) => {
                     <span>Get it now</span>
                   </a>
                   <span className="help" style={{ marginTop: '15px' }}>
-                    Questions or doubts?
-                    &nbsp;
+                    Questions or doubts? &nbsp;
                     <a
                       href="https://www.worona.org/get-help"
                       target="_blank"
