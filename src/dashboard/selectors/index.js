@@ -1,8 +1,7 @@
 import * as deps from '../deps';
 
-export const getImageUploaderStatus = state =>
-  state.publishNative.ImageUploader.imageUploaderStatus;
-export const getImageUploaderError = state => state.publishNative.ImageUploader.imageUploaderError;
+export const getImageUploaderStatus = state => state.publishNative.imageUploader.status;
+export const getImageUploaderError = state => state.publishNative.imageUploader.error;
 export const getAppName = state =>
   deps.selectorCreators.getSetting('publishNative', 'appName')(state);
 export const getIconSrc = state =>

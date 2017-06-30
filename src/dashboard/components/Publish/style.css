@@ -23,8 +23,24 @@
   padding: 0px 20px 20px 20px;
 }
 
+.dropzone {
+  background-color: #F5F5F5;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
 .uploading {
-  padding: 20px 20px 0px 20px;
+  background-color: #FFF9CD;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.succed {
+  background-color: #CDFFD8;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #49C359;
+}
+
+.error {
+  background-color: #FFCDCD;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2),0 0 0 1px #C34949;
 }
 
 .step {

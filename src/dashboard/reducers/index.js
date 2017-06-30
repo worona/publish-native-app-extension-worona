@@ -3,6 +3,6 @@ import imageUploader from './imageUploader';
 import Downloading from './downloading';
 
 export default () => combineReducers({
-  ImageUploader: imageUploader(),
+  imageUploader: imageUploader(),
   Downloading,
 });
