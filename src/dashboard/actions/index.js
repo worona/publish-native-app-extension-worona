@@ -15,10 +15,11 @@ export const publishSiteFailed = errorObj => ({
   type: types.PUBLISH_SITE_FAILED,
   error: stringifyError(errorObj),
 });
-export const uploadRequested = (siteId, file) => ({
+export const uploadRequested = (siteId, file, fileId) => ({
   type: types.UPLOAD_REQUESTED,
   siteId,
   file,
+  fileId,
 });
 export const uploadSucceed = (fileId, siteId) => ({ type: types.UPLOAD_SUCCEED, fileId, siteId });
 export const uploadError = message => ({ type: types.UPLOAD_ERROR, message });

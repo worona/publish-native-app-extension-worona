@@ -16,7 +16,7 @@ const ImageUploader = ({ siteId, status, isUploading, errorMessage, handleDrop }
       <Dropzone
         className={`${styles.dropzone} ${styles[status]}`}
         onDrop={file => {
-          handleDrop(siteId, file[0]);
+          handleDrop(siteId, file[0], Date.now());
         }}
       >
         <div className={`card-content ${isUploading && styles.uploading}`}>
@@ -51,8 +51,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleDrop(siteId, fileName) {
-    dispatch(actions.uploadRequested(siteId, fileName));
+  handleDrop(siteId, file, fileId) {
+    dispatch(actions.uploadRequested(siteId, file, fileId));
   },
 });
 

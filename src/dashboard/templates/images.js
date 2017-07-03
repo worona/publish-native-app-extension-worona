@@ -1,6 +1,6 @@
-export default (baseUrl) => [
+export default baseUrl => [
   /* Icons */
-    // Android
+  // Android
   {
     type: 'icon',
     fileName: 'xxxhdpi-icon.png',
@@ -37,7 +37,7 @@ export default (baseUrl) => [
     platform: 'android',
     url: `${baseUrl}?profile=android-icon-36`,
   },
-    // iOS
+  // iOS
   {
     type: 'icon',
     fileName: 'icon.png',
@@ -135,85 +135,84 @@ export default (baseUrl) => [
     url: `${baseUrl}?profile=ios-icon-87`,
   },
   /* Splash screens */
-    // Android
+  // Android
   {
     type: 'screen',
     fileName: 'ldpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/ldpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-ldpi`,
   },
   {
     type: 'screen',
     fileName: 'mdpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/mdpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-mdpi`,
   },
   {
     type: 'screen',
     fileName: 'hdpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/hdpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-hdpi`,
   },
   {
     type: 'screen',
     fileName: 'xhdpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/xhdpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-xhdpi`,
   },
   {
     type: 'screen',
     fileName: 'xxhdpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/xxhdpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-xxhdpi`,
   },
   {
     type: 'screen',
     fileName: 'xxxhdpi.png',
     platform: 'android',
-    url: `https://worona.imgix.net/splashes/watermark/xxxhdpi.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-android-xxxhdpi`,
   },
-    // ios
+  // ios
   {
     type: 'screen',
     fileName: 'Default.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default`,
   },
   {
     type: 'screen',
     fileName: 'Default@2x.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default@2x.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-2x`,
   },
   {
     type: 'screen',
     fileName: 'Default-568h@2x.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default-568h@2x.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-568h-2x`,
   },
   {
     type: 'screen',
     fileName: 'Default-667h@2x.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default-667h@2x.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-667h-2x`,
   },
   {
     type: 'screen',
     fileName: 'Default-Portrait-736h@3x.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default-Portrait-736h@3x.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-portrait-736h-3x`,
   },
   {
     type: 'screen',
     fileName: 'Default-Portrait@2x.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default-Portrait@2x.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-portrait-2x`,
   },
   {
     type: 'screen',
     fileName: 'Default-Portrait.png',
     platform: 'ios',
-    url: `https://worona.imgix.net/splashes/watermark/Default-Portrait.png?markalign=center%2Cmiddle&markscale=45&markfit=max&mark=${baseUrl}`,
+    url: `${baseUrl}?profile=screen-ios-default-portrait`,
   },
-
 ];

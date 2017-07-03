@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import Imgix from 'react-imgix';
 import cn from 'classnames';
 import * as deps from '../../deps';
 import * as selectors from '../../selectors';
@@ -116,10 +115,9 @@ StepTitle.propTypes = {
 
 const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
-  let splashSrc;
-  if (iconSrc === defaultPixel) splashSrc = defaultPixel;
-  else
-    splashSrc = `${iconSrc}?profile=Splash`;
+  const replacedIconSrc = iconSrc.replace('https://worona.imgix.net', 'https://worona.sirv.com');
+  const splashSrc = replacedIconSrc === defaultPixel ? defaultPixel : `${replacedIconSrc}?profile=Splash`;
+
   return (
     <div>
       <div id="EnterNameIcon">
@@ -163,7 +161,7 @@ const Publish = ({ iconSrc, siteId }) => {
             <br />
             <div width="128px" height="128px">
               <img
-                src={`${iconSrc}?profile=Icon`}
+                src={`${replacedIconSrc}?profile=Icon`}
                 height="128"
                 width="128"
                 alt="App icon preview"
