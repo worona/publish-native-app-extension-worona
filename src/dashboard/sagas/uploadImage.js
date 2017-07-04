@@ -10,7 +10,7 @@ function* uploadImage(action) {
     const { siteId, file, fileId } = action;
     const fileName = `${fileId}_${file.name}`;
     const url = (yield request
-      .get('https://backend.worona.io/api/v1/s3/sign')
+      .get('https://prebackend.worona.io/api/v1/s3/sign')
       .query({ siteId, imgType: 'icon', objectName: fileName })).text;
 
     yield request.put(url).send(file);
