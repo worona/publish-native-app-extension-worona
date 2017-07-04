@@ -1,5 +1,4 @@
 import request from 'superagent';
-import { isProd } from 'worona-deps';
 import { takeLatest } from 'redux-saga';
 import { put } from 'redux-saga/effects';
 
@@ -11,7 +10,7 @@ function* uploadImage(action) {
     const { siteId, file, fileId } = action;
     const fileName = `${fileId}_${file.name}`;
     const url = (yield request
-      .get(`https://${isProd ? '' : 'pre'}backend.worona.io/api/v1/s3/sign`)
+      .get('https://backend.worona.io/api/v1/s3/sign')
       .query({ siteId, imgType: 'icon', objectName: fileName })).text;
 
     yield request.put(url).send(file);
