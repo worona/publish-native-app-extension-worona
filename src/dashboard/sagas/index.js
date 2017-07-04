@@ -1,13 +1,15 @@
 import { fork } from 'redux-saga/effects';
 import { publishSiteWatcher } from './publishSite';
-import { uploadImageSagaWatcher } from './checkImageAvailability';
+import { checkImageAvailabilitySagaWatcher } from './checkImageAvailability';
+import { uploadImageSagaWatcher } from './uploadImage';
 import { setDefaultSettingsSagaWatcher, setIconSrcSagaWatcher } from './settings';
 
 export default function* publishNativeSagas() {
   yield [
     fork(publishSiteWatcher),
     fork(setDefaultSettingsSagaWatcher),
-    fork(setIconSrcSagaWatcher),
     fork(uploadImageSagaWatcher),
+    fork(setIconSrcSagaWatcher),
+    fork(checkImageAvailabilitySagaWatcher),
   ];
 }
