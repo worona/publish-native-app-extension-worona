@@ -30,8 +30,20 @@ export const error = (state = '', action) => {
   }
 };
 
+export const size = (state = '', action) => {
+  switch (action.type) {
+    case types.SIZE_WARNING:
+      return 'Icon uploaded succesfully, but image size should be equal or greater than 1024x1024 for better performance.';
+    case types.UPLOAD_REQUESTED:
+      return '';
+    default:
+      return state;
+  }
+};
+
 export default () =>
   combineReducers({
     status,
     error,
+    size,
   });
