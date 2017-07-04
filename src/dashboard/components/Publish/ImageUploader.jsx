@@ -8,7 +8,7 @@ import * as actions from '../../actions';
 import * as selectors from '../../selectors';
 import * as deps from '../../deps';
 
-const ImageUploader = ({ siteId, status, isUploading, errorMessage, handleDrop }) => {
+const ImageUploader = ({ siteId, status, isUploading, errorMessage, sizeMessage, handleDrop }) => {
   const Icon = deps.elements.Icon;
 
   return (
@@ -39,6 +39,9 @@ const ImageUploader = ({ siteId, status, isUploading, errorMessage, handleDrop }
       <span className="help is-danger">
         {errorMessage}
       </span>
+      <span className="help is-danger">
+        {sizeMessage}
+      </span>
     </div>
   );
 };
@@ -48,6 +51,7 @@ const mapStateToProps = state => ({
   status: selectors.getImageUploaderStatus(state),
   isUploading: selectors.getImageUploaderStatus(state) === 'uploading',
   errorMessage: selectors.getImageUploaderError(state),
+  sizeMessage: selectors.getImageUploaderSize(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -61,6 +65,7 @@ ImageUploader.propTypes = {
   status: PropTypes.string.isRequired,
   isUploading: PropTypes.bool,
   errorMessage: PropTypes.string,
+  sizeMessage: PropTypes.string,
   handleDrop: PropTypes.func.isRequired,
 };
 

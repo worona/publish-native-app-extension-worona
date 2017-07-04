@@ -28,3 +28,7 @@ export const uploadAvailable = (fileId, siteId) => ({
   fileId,
   siteId,
 });
+export const sizeWarning = isSmall => ({
+  type: types.SIZE_WARNING,
+  isSmall,
+});
