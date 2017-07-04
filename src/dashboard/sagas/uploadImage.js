@@ -13,6 +13,7 @@ function* uploadImage(action) {
     const url = (yield request
       .get(`https://${backend}.worona.io/api/v1/s3/sign`)
       .query({ siteId, imgType: 'icon', objectName: fileName })).text;
+
     yield request.put(url).set('Content-Type', file.type).send(file);
 
     yield put(uploadSucceed(fileName, siteId));

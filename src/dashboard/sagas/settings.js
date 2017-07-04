@@ -15,7 +15,7 @@ export function* setIconSrcSaga({ siteId, fileId }) {
 }
 
 export function* setIconSrcSagaWatcher() {
-  yield* takeEvery(types.UPLOAD_AVAILABLE, setIconSrcSaga);
+  yield* takeEvery(types.UPLOAD_SUCCEED, setIconSrcSaga);
 }
 
 export function* initPublishNativeSettings({ name, siteId }) {
