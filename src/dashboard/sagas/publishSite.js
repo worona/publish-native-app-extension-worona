@@ -100,7 +100,6 @@ export function* publishSiteSaga({ siteId }) {
     if (site.id !== siteId)
       throw new Error('Trying to publish a site different than the current one.');
     const iconSrc = yield select(selectors.getIconSrc);
-    const replacedIconSrc = iconSrc.replace('https://worona.imgix.net', 'https://worona.sirv.com');
     const appName = yield select(selectors.getAppName);
     const lastVersion = yield select(selectors.getVersion);
     const currentMajorVersion = '1.0.0';
@@ -108,7 +107,7 @@ export function* publishSiteSaga({ siteId }) {
       ? currentMajorVersion
       : semver.inc(lastVersion, 'patch');
     const user = yield select(deps.selectors.getNameAndEmail);
-    const images = generateImagesArray(replacedIconSrc);
+    const images = generateImagesArray(iconSrc);
     yield put(actions.publishSiteStatusChanged('Downloading images...'));
     const imagesData = yield call(getAllImagesPromise, images);
     yield put(actions.publishSiteStatusChanged('Downloading files...'));

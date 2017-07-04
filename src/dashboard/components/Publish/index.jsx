@@ -115,8 +115,7 @@ StepTitle.propTypes = {
 
 const Publish = ({ iconSrc, siteId }) => {
   const Icon = deps.elements.Icon;
-  const replacedIconSrc = iconSrc.replace('https://worona.imgix.net', 'https://worona.sirv.com');
-  const splashSrc = replacedIconSrc === defaultPixel ? defaultPixel : `${replacedIconSrc}?profile=Splash`;
+  const splashSrc = iconSrc === defaultPixel ? defaultPixel : `${iconSrc}?profile=Splash`;
 
   return (
     <div>
@@ -161,7 +160,7 @@ const Publish = ({ iconSrc, siteId }) => {
             <br />
             <div width="128px" height="128px">
               <img
-                src={`${replacedIconSrc}?profile=Icon`}
+                src={`${iconSrc}?profile=Icon`}
                 height="128"
                 width="128"
                 alt="App icon preview"
