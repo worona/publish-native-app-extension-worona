@@ -251,7 +251,7 @@ const Publish = ({ iconSrc, siteId }) => {
                     <br />
                     <p className="title is-4 has-text-centered">Worona Publish </p>
                     <p className="subtitle is-6 has-text-centered" style={{ paddingTop: '10px' }}>
-                      We take care of everything
+                      We publish your app to the Google Play
                     </p>
                   </div>
                 </div>
@@ -261,13 +261,13 @@ const Publish = ({ iconSrc, siteId }) => {
                   &nbsp;&nbsp;Premium support <br />
                   <br />
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;Your app published in 7 days <br />
+                  &nbsp;&nbsp;Your Android app published in 5 days <br />
                   <br />
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;No developer accounts required <br />
+                  &nbsp;&nbsp;No developer account required <br />
                   <br />
                   <Icon code="check" color="#27ae60" />
-                  &nbsp;&nbsp;290€&nbsp;one time payment <br />
+                  &nbsp;&nbsp;150€&nbsp;one time payment <br />
                 </div>
                 <hr />
                 <div className="has-text-centered">
@@ -280,15 +280,14 @@ const Publish = ({ iconSrc, siteId }) => {
                     <span>Get it now</span>
                   </a>
                   <span className="help" style={{ marginTop: '15px' }}>
-                    Questions or doubts? &nbsp;
+                    Questions or doubts? Here you have more&nbsp;
                     <a
-                      href="https://www.worona.org/get-help"
+                      href="https://www.worona.org/publish"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Contact us
-                    </a>
-                    &nbsp;at any time.
+                      info
+                    </a>.
                   </span>
                 </div>
                 <br />
